@@ -22,4 +22,9 @@ then call event loger AppStart and define following filters globaly in your proj
   GlobalFilters.Filters.Add(new EventLogger());
 ```
 
+thats all we need to do.
+run your mvc project and see your database !
+2 tabale added in your database. now open EventLogs table and you should see some log in it.
+
+# screenshots
 
