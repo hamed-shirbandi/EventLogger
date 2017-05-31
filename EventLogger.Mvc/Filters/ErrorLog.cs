@@ -6,11 +6,11 @@ using System;
 
 namespace EventLogger.Mvc.Filters
 {
-   public class ErrorLoger : FilterAttribute, IExceptionFilter
+   public class ErrorLog : FilterAttribute, IExceptionFilter
     {
         private readonly IErrorService _errorService;
 
-        public ErrorLoger()
+        public ErrorLog()
         {
             _errorService = EventLoggerSmObjectFactory.Container.GetInstance<IErrorService>();
         }

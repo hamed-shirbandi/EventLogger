@@ -12,5 +12,5 @@ define follwig filtes globaly in your project web.config and appStart
 
   EventLogger.Config.AppStart();
 
-  GlobalFilters.Filters.Add(new ErrorLoger());  
-  GlobalFilters.Filters.Add(new EventLogger());
+  GlobalFilters.Filters.Add(new ErrorLog());  
+  GlobalFilters.Filters.Add(new EventLog());
