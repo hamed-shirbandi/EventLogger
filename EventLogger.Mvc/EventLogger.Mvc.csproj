@@ -101,6 +101,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\img\1.png" />
+    <Content Include="Content\img\2.png" />
     <Content Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
