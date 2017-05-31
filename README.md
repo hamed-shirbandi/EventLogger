@@ -2,6 +2,9 @@
 very useful event logger to log any event such as errors. this automaticaly add 2 table with names Errors and Events to your databas.
 in your Mvc project just by define global filter and set your database connectionString name in appSetting, log enabled and all information about errors or other events saved in related tables.
 
+# Dependencies
+StructureMap 3.1.6.186
+
 # How to use ?
 
 first refrence to following dll in your project:
