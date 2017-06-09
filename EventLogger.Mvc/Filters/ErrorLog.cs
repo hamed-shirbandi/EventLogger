@@ -1,8 +1,6 @@
-﻿using EventLogger.Application.Errors;
-using EventLogger.Application.Errors.Dto;
-using EventLogger.Mvc.IocConfig;
+﻿using EventLogger.Service.ErrorLogs;
+using EventLogger.Service.ErrorLogs.Dto;
 using System.Web.Mvc;
-using System;
 
 namespace EventLogger.Mvc.Filters
 {
@@ -12,7 +10,7 @@ namespace EventLogger.Mvc.Filters
 
         public ErrorLog()
         {
-            _errorService = EventLoggerSmObjectFactory.Container.GetInstance<IErrorService>();
+            _errorService =new ErrorService();
         }
 
 
@@ -39,7 +37,7 @@ namespace EventLogger.Mvc.Filters
         {
             string routeValues = GetRuteValues(filterContext);
 
-            var error = new ErrorInput
+            var error = new ErrorLogInput
             {
                 Action = (string)filterContext.RouteData.Values["action"],
                 Controller = (string)filterContext.RouteData.Values["controller"],

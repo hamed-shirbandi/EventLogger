@@ -46,18 +46,6 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="StructureMap, Version=3.1.6.186, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\StructureMap.dll</HintPath>
-    </Reference>
-    <Reference Include="StructureMap.Net4, Version=3.1.6.186, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\StructureMap.Net4.dll</HintPath>
-    </Reference>
-    <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\StructureMap.Web.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -94,10 +82,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config.cs" />
     <Compile Include="Filters\ErrorLog.cs" />
     <Compile Include="Filters\EventLog.cs" />
-    <Compile Include="IocConfig\SmObjectFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -106,20 +92,11 @@
     <Content Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EventLogger.Application\EventLogger.Application.csproj">
-      <Project>{ab57b2fa-fec0-4099-a08a-456a568e1ec2}</Project>
-      <Name>EventLogger.Application</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EventLogger.Core\EventLogger.Core.csproj">
-      <Project>{c2096d56-0e1d-4156-9fde-62d2c5e33116}</Project>
-      <Name>EventLogger.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EventLogger.Infrastructure\EventLogger.Infrastructure.csproj">
-      <Project>{35b0c115-9796-4028-b9f2-15ab38cb0a5a}</Project>
-      <Name>EventLogger.Infrastructure</Name>
+    <ProjectReference Include="..\EventLogger\EventLogger.csproj">
+      <Project>{617872f5-f122-4624-b6c7-ff7c3880f9bd}</Project>
+      <Name>EventLogger</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

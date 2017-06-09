@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace EventLogger.Core.Domain
+namespace EventLogger.Domain
 {
-   public class Error
+   public class ErrorLog
     {
         public long Id { get; set; }
         public  string HelpLink { get; set; }

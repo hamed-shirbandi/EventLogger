@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EventLogger.Application.Events.Dto
+namespace EventLogger.Service.EventLogs.Dto
 {
-   public class EventInput
+   public class EventLogInput
     {
         public long Id { get; set; }
         public DateTime CreateDateTime { get; set; }

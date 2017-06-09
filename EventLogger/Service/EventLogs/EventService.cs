@@ -1,31 +1,29 @@
-﻿using EventLogger.Application.Events.Dto;
-using EventLogger.Core.Domain;
-using EventLogger.Infrastructure.Context;
+﻿using EventLogger.Service.EventLogs.Dto;
+using EventLogger.Domain;
+using EventLogger.Context;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EventLogger.Application.Events
+namespace EventLogger.Service.EventLogs
 {
    public class EventService : IEventService
     {
 
         #region properties
 
-        private readonly IDbSet<Event> _Events;
-        private readonly IUnitOfWork _uow;
+        private readonly IDbSet<EventLog> _Events;
+        private readonly MainContext _con;
 
         #endregion
 
         #region Ctor
 
-        public EventService(IUnitOfWork uow)
+        public EventService( )
         {
-            _uow = uow;
-            _Events = _uow.Set<Event>();
+            _con = new MainContext();
+            _Events = _con.Set<EventLog>();
         }
 
         #endregion
@@ -37,9 +35,9 @@ namespace EventLogger.Application.Events
         /// <summary>
         /// 
         /// </summary>
-        public void Create(EventInput input)
+        public void Create(EventLogInput input)
         {
-            var Event = new Event
+            var Event = new EventLog
             {
                 Action = input.Action,
                 Controller = input.Controller,
@@ -50,7 +48,7 @@ namespace EventLogger.Application.Events
             };
 
             _Events.Add(Event);
-            _uow.SaveChanges();
+            _con.SaveChanges();
         }
 
 
@@ -61,7 +59,7 @@ namespace EventLogger.Application.Events
         /// <summary>
         /// 
         /// </summary>
-        public EventInput Get(int id)
+        public EventLogInput Get(int id)
         {
             var Event = _Events.FirstOrDefault(e => e.Id == id);
 
@@ -70,7 +68,7 @@ namespace EventLogger.Application.Events
                 throw new Exception("Event not found in database");
             }
 
-            return new EventInput
+            return new EventLogInput
             {
                 Id = Event.Id,
                 Action = Event.Action,
@@ -86,9 +84,9 @@ namespace EventLogger.Application.Events
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<EventInput> Search()
+        public IEnumerable<EventLogInput> Search()
         {
-            return _Events.Select(Event => new EventInput
+            return _Events.Select(Event => new EventLogInput
             {
                 Id = Event.Id,
                 Action = Event.Action,

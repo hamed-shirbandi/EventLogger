@@ -1,16 +1,4 @@
 ﻿
-define follwig filtes globaly in your project web.config and appStart
+To learn how to use EventLogger please visit Following url
 
-
-  <appSettings>
-    <add key="EventLoggerConnectionStringName" value="YourAppConnectionStringName" />
-	.
-	.
-	.
-
-  </appSettings>
-
-  EventLogger.Config.AppStart();
-
-  GlobalFilters.Filters.Add(new ErrorLog());  
-  GlobalFilters.Filters.Add(new EventLog());
+https://github.com/hamed-shirbandi/EventLogger

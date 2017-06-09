@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace EventLogger.Application.Errors.Dto
+namespace EventLogger.Service.ErrorLogs.Dto
 {
-   public class ErrorInput
+   public class ErrorLogInput
     {
         public long Id { get; set; }
         public string HelpLink { get; set; }

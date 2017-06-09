@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EventLogger.Application")]
+[assembly: AssemblyTitle("EventLogger")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("CodeBlock")]
-[assembly: AssemblyProduct("EventLogger.Application")]
-[assembly: AssemblyCopyright("Copyright © CodeBlock 2017")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("EventLogger")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ab57b2fa-fec0-4099-a08a-456a568e1ec2")]
+[assembly: Guid("617872f5-f122-4624-b6c7-ff7c3880f9bd")]
 
 // Version information for an assembly consists of the following four values:
 //

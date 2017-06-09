@@ -4,17 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AB57B2FA-FEC0-4099-A08A-456A568E1EC2}</ProjectGuid>
+    <ProjectGuid>{617872F5-F122-4624-B6C7-FF7C3880F9BD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EventLogger.Application</RootNamespace>
-    <AssemblyName>EventLogger.Application</AssemblyName>
+    <RootNamespace>EventLogger</RootNamespace>
+    <AssemblyName>EventLogger</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,27 +50,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Errors\Dto\ErrorInput.cs" />
-    <Compile Include="Errors\ErrorService.cs" />
-    <Compile Include="Errors\IErrorService.cs" />
-    <Compile Include="Events\Dto\EventInput.cs" />
-    <Compile Include="Events\EventService.cs" />
-    <Compile Include="Events\IEventService.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Context\MainContext.cs" />
+    <Compile Include="Domain\ErrorLog.cs" />
+    <Compile Include="Domain\EventLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EventLogger.Core\EventLogger.Core.csproj">
-      <Project>{c2096d56-0e1d-4156-9fde-62d2c5e33116}</Project>
-      <Name>EventLogger.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EventLogger.Infrastructure\EventLogger.Infrastructure.csproj">
-      <Project>{35b0c115-9796-4028-b9f2-15ab38cb0a5a}</Project>
-      <Name>EventLogger.Infrastructure</Name>
-    </ProjectReference>
+    <Compile Include="Service\ErrorLogs\Dto\ErrorLogInput.cs" />
+    <Compile Include="Service\ErrorLogs\ErrorService.cs" />
+    <Compile Include="Service\ErrorLogs\IErrorService.cs" />
+    <Compile Include="Service\EventLogs\Dto\EventLogInput.cs" />
+    <Compile Include="Service\EventLogs\EventService.cs" />
+    <Compile Include="Service\EventLogs\IEventService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>

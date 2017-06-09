@@ -1,30 +1,28 @@
-﻿using EventLogger.Application.Errors.Dto;
-using EventLogger.Core.Domain;
-using EventLogger.Infrastructure.Context;
+﻿using EventLogger.Context;
+using EventLogger.Domain;
+using EventLogger.Service.ErrorLogs.Dto;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EventLogger.Application.Errors
+namespace EventLogger.Service.ErrorLogs
 {
     public class ErrorService : IErrorService
     {
         #region properties
 
-        private readonly IDbSet<Error> _errors;
-        private readonly IUnitOfWork _uow;
+        private readonly IDbSet<ErrorLog> _errors;
+        private readonly MainContext _con;
 
         #endregion
 
         #region Ctor
 
-        public ErrorService(IUnitOfWork uow)
+        public ErrorService()
         {
-            _uow = uow;
-            _errors = _uow.Set<Error>();
+            _con = new MainContext();
+            _errors = _con.Set<ErrorLog>();
         }
 
         #endregion
@@ -36,9 +34,9 @@ namespace EventLogger.Application.Errors
         /// <summary>
         /// 
         /// </summary>
-        public ErrorInput Create(ErrorInput input)
+        public ErrorLogInput Create(ErrorLogInput input)
         {
-            var error = new Error
+            var error = new ErrorLog
             {
                 Action = input.Action,
                 Controller = input.Controller,
@@ -54,7 +52,7 @@ namespace EventLogger.Application.Errors
 
 
            var result= _errors.Add(error);
-            _uow.SaveChanges();
+            _con.SaveChanges();
 
             input.Id = result.Id;
             return input;
@@ -68,7 +66,7 @@ namespace EventLogger.Application.Errors
         /// <summary>
         /// 
         /// </summary>
-        public ErrorInput Get(int id)
+        public ErrorLogInput Get(int id)
         {
             var error = _errors.FirstOrDefault(e=>e.Id==id);
 
@@ -77,7 +75,7 @@ namespace EventLogger.Application.Errors
                 throw new Exception("error not found in database");
             }
 
-            return new ErrorInput
+            return new ErrorLogInput
             {
                 Id=error.Id,
                 Action = error.Action,
@@ -98,9 +96,9 @@ namespace EventLogger.Application.Errors
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<ErrorInput> Search()
+        public IEnumerable<ErrorLogInput> Search()
         {
-            return _errors.Select(error => new ErrorInput
+            return _errors.Select(error => new ErrorLogInput
             {
                 Id = error.Id,
                 Action = error.Action,

@@ -1,7 +1,5 @@
-﻿using EventLogger.Application.Events;
-using EventLogger.Application.Events.Dto;
-using EventLogger.Mvc.IocConfig;
-using System;
+﻿using EventLogger.Service.EventLogs;
+using EventLogger.Service.EventLogs.Dto;
 using System.Web.Mvc;
 
 namespace EventLogger.Mvc.Filters
@@ -12,7 +10,7 @@ namespace EventLogger.Mvc.Filters
 
         public EventLog()
         {
-            _eventService = EventLoggerSmObjectFactory.Container.GetInstance<IEventService>();
+            _eventService = new EventService();
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -28,7 +26,7 @@ namespace EventLogger.Mvc.Filters
         {
             string routeValues = GetRuteValues(filterContext);
 
-            var @event = new EventInput
+            var @event = new EventLogInput
             {
                 Action = (string)filterContext.RouteData.Values["action"],
                 Controller = (string)filterContext.RouteData.Values["controller"],

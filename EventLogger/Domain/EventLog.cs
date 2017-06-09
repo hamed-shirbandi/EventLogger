@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace EventLogger.Core.Domain
+namespace EventLogger.Domain
 {
-   public class Event
+   public class EventLog
     {
         public long Id { get; set; }
         public DateTime CreateDateTime { get; set; }
