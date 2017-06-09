@@ -89,7 +89,6 @@
   <ItemGroup>
     <Content Include="Content\img\1.png" />
     <Content Include="Content\img\2.png" />
-    <Content Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EventLogger\EventLogger.csproj">
