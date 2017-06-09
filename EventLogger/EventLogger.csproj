@@ -54,6 +54,7 @@
     <Compile Include="Context\MainContext.cs" />
     <Compile Include="Domain\ErrorLog.cs" />
     <Compile Include="Domain\EventLog.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ErrorLogs\Dto\ErrorLogInput.cs" />
     <Compile Include="Service\ErrorLogs\ErrorService.cs" />

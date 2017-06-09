@@ -1,5 +1,5 @@
 ﻿using EventLogger.Context;
-//using EventLogger.Migrations;
+using EventLogger.Migrations;
 using System.Data.Entity;
 
 namespace EventLogger.Mvc
@@ -30,7 +30,7 @@ namespace EventLogger.Mvc
         /// </summary>
         public static void setDbInitializer()
         {
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<MainContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MainContext, Configuration>());
         }
         
     }
