@@ -3,7 +3,7 @@ using System.Data.Entity.Migrations;
 
 namespace EventLogger.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<MainContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<EventLoggerContext>
     {
         public Configuration()
         {
@@ -11,7 +11,7 @@ namespace EventLogger.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(MainContext context)
+        protected override void Seed(EventLoggerContext context)
         {
            
         }

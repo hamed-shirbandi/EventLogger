@@ -4,11 +4,11 @@ using System.Web.Mvc;
 
 namespace EventLogger.Mvc.Filters
 {
-   public class ErrorLog : FilterAttribute, IExceptionFilter
+   public class ErrorLogFilter : FilterAttribute, IExceptionFilter
     {
         private readonly IErrorService _errorService;
 
-        public ErrorLog()
+        public ErrorLogFilter()
         {
             _errorService =new ErrorService();
         }
@@ -23,7 +23,7 @@ namespace EventLogger.Mvc.Filters
 
                 filterContext.Result = new ViewResult
                 {
-                    ViewName = "Error",
+                    ViewName = "ErrorLogView",
                     ViewData = new ViewDataDictionary<long>(logId)
                 };
               
@@ -51,9 +51,9 @@ namespace EventLogger.Mvc.Filters
             };
 
 
-           var log= _errorService.Create(error);
+           var logId= _errorService.Create(error);
 
-            return log.Id;
+            return logId;
         }
 
 

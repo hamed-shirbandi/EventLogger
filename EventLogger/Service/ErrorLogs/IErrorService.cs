@@ -4,7 +4,7 @@ namespace EventLogger.Service.ErrorLogs
 {
     public interface IErrorService
     {
-        ErrorLogInput Create(ErrorLogInput input);
+        long Create(ErrorLogInput input);
         ErrorLogInput Get(int id);
         IEnumerable<ErrorLogInput> Search();
         int Count();

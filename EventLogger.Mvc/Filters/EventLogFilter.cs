@@ -4,11 +4,11 @@ using System.Web.Mvc;
 
 namespace EventLogger.Mvc.Filters
 {
-    public class EventLog : ActionFilterAttribute
+    public class EventLogFilter : ActionFilterAttribute
     {
         private readonly IEventService _eventService;
 
-        public EventLog()
+        public EventLogFilter()
         {
             _eventService = new EventService();
         }

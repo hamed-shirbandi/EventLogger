@@ -13,7 +13,7 @@ namespace EventLogger.Service.ErrorLogs
         #region properties
 
         private readonly IDbSet<ErrorLog> _errors;
-        private readonly MainContext _con;
+        private readonly EventLoggerContext _con;
 
         #endregion
 
@@ -21,7 +21,7 @@ namespace EventLogger.Service.ErrorLogs
 
         public ErrorService()
         {
-            _con = new MainContext();
+            _con = new EventLoggerContext();
             _errors = _con.Set<ErrorLog>();
         }
 
@@ -34,7 +34,7 @@ namespace EventLogger.Service.ErrorLogs
         /// <summary>
         /// 
         /// </summary>
-        public ErrorLogInput Create(ErrorLogInput input)
+        public long Create(ErrorLogInput input)
         {
             var error = new ErrorLog
             {
@@ -54,8 +54,7 @@ namespace EventLogger.Service.ErrorLogs
            var result= _errors.Add(error);
             _con.SaveChanges();
 
-            input.Id = result.Id;
-            return input;
+            return result.Id;
         }
 
 

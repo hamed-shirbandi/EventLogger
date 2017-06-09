@@ -2,9 +2,9 @@
 using EventLogger.Migrations;
 using System.Data.Entity;
 
-namespace EventLogger.Mvc
+namespace EventLogger
 {
-    public class Config 
+    public class EventLoggerConfig
     {
 
 
@@ -28,9 +28,9 @@ namespace EventLogger.Mvc
         /// <summary>
         /// 
         /// </summary>
-        public static void setDbInitializer()
+        private static void setDbInitializer()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MainContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<EventLoggerContext, Configuration>());
         }
         
     }

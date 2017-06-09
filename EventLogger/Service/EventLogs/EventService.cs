@@ -14,7 +14,7 @@ namespace EventLogger.Service.EventLogs
         #region properties
 
         private readonly IDbSet<EventLog> _Events;
-        private readonly MainContext _con;
+        private readonly EventLoggerContext _con;
 
         #endregion
 
@@ -22,7 +22,7 @@ namespace EventLogger.Service.EventLogs
 
         public EventService( )
         {
-            _con = new MainContext();
+            _con = new EventLoggerContext();
             _Events = _con.Set<EventLog>();
         }
 

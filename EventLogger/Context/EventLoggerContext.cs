@@ -6,14 +6,14 @@ using System.Configuration;
 namespace EventLogger.Context
 {
 
-    public class MainContext : DbContext
+    public class EventLoggerContext : DbContext
     {
 
         static string con = ConfigurationManager.AppSettings["EventLoggerConnectionStringName"].ToString();
 
         #region Ctor
 
-        public MainContext() : base(con)
+        public EventLoggerContext() : base(con)
         {
          
         }
