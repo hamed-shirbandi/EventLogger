@@ -1,18 +1,14 @@
 # What is this ?
-very useful event logger to log any event such as errors. this automaticaly add 2 table with names Errors and Events to your databas.
-in your Mvc project just by define global filter and set your database connectionString name in appSetting, log enabled and all information about errors or other events saved in related tables.
+very useful event logger to log any event such as errors. this automaticaly add 2 table with names ErrorLogs and EventLogs to your databas.
+in your Mvc project just by define global filter and set your database connectionString name in appSetting, logging enabled and all information about errors or other events saved in related tables.
 
-# Dependencies
-StructureMap 3.1.6.186
 
 # How to use ?
 
 first refrence to following dll in your project:
 ```code
-EventLoger.dll
-EventLoger.Core.dll
-EventLoger.Infrastructure.dll
-EventLoger.Application.dll
+EventLogger
+EventLogger.Mvc
 ```
 now you need to add some setting in your app config file:
 ```xml
@@ -25,16 +21,16 @@ now you need to add some setting in your app config file:
   </appSettings>
 ```
 replace your database connection name with YourAppConnectionStringName.
-then call event loger AppStart and define following filters globaly in your project appStart
+then add the following line to the Application_Start method of the Global.asax.cs file
 
 ```c#
-  EventLogger.Config.AppStart();
-  GlobalFilters.Filters.Add(new ErrorLog());  
-  GlobalFilters.Filters.Add(new EventLog());
+    EventLoggerConfig.Init();
+    GlobalFilters.Filters.Add(new EventLogFilter());
+    GlobalFilters.Filters.Add(new ErrorLogFilter());
 ```
-if you need to see error log id in costum error page, you can add cshtml view with name Error to views/shared like bellow and get LogId
+if you need to see error log id in costum error page, you can add cshtml view with name ErrorLogView to views/shared like bellow and get LogId
 ```code
-@model int
+@model long
 
 @{
     ViewBag.Title = "Error";
@@ -45,7 +41,7 @@ if you need to see error log id in costum error page, you can add cshtml view wi
 ```
 thats all we need to do.
 run your mvc project and see your database !
-2 tabale added in your database. now open Events table and you should see some log in it.
+2 tabale added in your database. now open EventLogs table and you should see some log in it.
 
 # screenshots
 ![eventlogger](https://github.com/hamed-shirbandi/EventLogger.Mvc/blob/master/EventLogger.Mvc/Content/img/1.png)
