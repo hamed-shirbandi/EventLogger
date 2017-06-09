@@ -8,7 +8,7 @@ namespace EventLogger.Mvc.Example.Controllers
         public ActionResult Index()
         {
             //throw new Exception("test ex");
-            return View();
+            return View(); 
         }
 
         public ActionResult About()
