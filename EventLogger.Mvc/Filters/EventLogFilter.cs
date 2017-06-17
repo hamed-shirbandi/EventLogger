@@ -1,8 +1,9 @@
-﻿using EventLogger.Service.EventLogs;
+﻿using EventLogger.Enums;
+using EventLogger.Service.EventLogs;
 using EventLogger.Service.EventLogs.Dto;
 using System.Web.Mvc;
 
-namespace EventLogger.Mvc.Filters
+namespace EventLogger.Mvc
 {
     public class EventLogFilter : ActionFilterAttribute
     {
@@ -24,33 +25,28 @@ namespace EventLogger.Mvc.Filters
 
         private void LogEvent(ActionExecutingContext filterContext)
         {
-            string routeValues = GetRuteValues(filterContext);
+            string routeValues = HttpRequestHelper.GetRuteValues(filterContext);
 
-            var @event = new EventLogInput
+            var log = new EventLogInput
             {
-                Action = (string)filterContext.RouteData.Values["action"],
-                Controller = (string)filterContext.RouteData.Values["controller"],
+                EventLogType= EventLogType.Event,
+                Action = filterContext.RouteData.Values["action"].ToString(),
+                Controller = filterContext.RouteData.Values["controller"].ToString(),
                 RouteValues=routeValues,
                 UserName = filterContext.HttpContext.User.Identity.Name,
+                QueryString=filterContext.HttpContext.Request.Url.Query,
+                Url=filterContext.HttpContext.Request.Path,
+                UserAgent=filterContext.HttpContext.Request.UserAgent,
+                Ip=filterContext.HttpContext.Request.UserHostAddress,
+                PathInfo= filterContext.HttpContext.Request.PathInfo,
+                
+
+
             };
 
-
-            _eventService.Create(@event);
+            _eventService.Create(log);
         }
 
-
-        private string GetRuteValues(ActionExecutingContext filterContext)
-        {
-            var keyValues = string.Empty;
-            var keys = filterContext.RouteData.Values.Keys;
-            var values = filterContext.RouteData.Values;
-
-            foreach (var key in keys)
-            {
-                keyValues += key+" = "+(string)values[key]+ " , " ;
-            }
-
-            return keyValues;
-        }
+        
     }
 }

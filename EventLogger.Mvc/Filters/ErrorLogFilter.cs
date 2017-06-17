@@ -1,78 +1,70 @@
-﻿using EventLogger.Service.ErrorLogs;
-using EventLogger.Service.ErrorLogs.Dto;
+﻿using EventLogger.Enums;
+using EventLogger.Service.EventLogs;
+using EventLogger.Service.EventLogs.Dto;
 using System.Web.Mvc;
 
-namespace EventLogger.Mvc.Filters
+namespace EventLogger.Mvc
 {
-   public class ErrorLogFilter : FilterAttribute, IExceptionFilter
+   public class ErrorLogFilter :HandleErrorAttribute
     {
-        private readonly IErrorService _errorService;
+        private readonly IEventService _eventService;
 
         public ErrorLogFilter()
         {
-            _errorService =new ErrorService();
+            _eventService = new EventService();
         }
 
 
-        public void OnException(ExceptionContext filterContext)
+        public override void OnException(ExceptionContext filterContext)
         {
             if (!filterContext.ExceptionHandled)
             {
 
-               var logId= LogError(filterContext);
+              LogError(filterContext);
 
                 filterContext.Result = new ViewResult
                 {
-                    ViewName = "ErrorLogView",
-                    ViewData = new ViewDataDictionary<long>(logId)
+                    ViewName = "Error",
                 };
-              
+
                 filterContext.ExceptionHandled = true;
             }
         }
 
 
 
-        private long LogError(ExceptionContext filterContext)
+        private void LogError(ExceptionContext filterContext)
         {
-            string routeValues = GetRuteValues(filterContext);
+           
+            string routeValues = ExceptionHelper.GetRuteValues(filterContext);
 
-            var error = new ErrorLogInput
+            var log = new EventLogInput
             {
-                Action = (string)filterContext.RouteData.Values["action"],
-                Controller = (string)filterContext.RouteData.Values["controller"],
+                EventLogType = EventLogType.Error,
+                Action = filterContext.RouteData.Values["action"].ToString(),
+                Controller = filterContext.RouteData.Values["controller"].ToString(),
                 RouteValues = routeValues,
+                UserName = filterContext.HttpContext.User.Identity.Name,
+                QueryString = filterContext.HttpContext.Request.Url.Query,
+                Url = filterContext.HttpContext.Request.Path,
+                UserAgent = filterContext.HttpContext.Request.UserAgent,
+                Ip = filterContext.HttpContext.Request.UserHostAddress,
+                PathInfo = filterContext.HttpContext.Request.PathInfo,
+
                 HelpLink = filterContext.Exception.HelpLink,
                 HResult = filterContext.Exception.HResult,
                 Message = filterContext.Exception.Message,
                 Source = filterContext.Exception.Source,
                 StackTrace = filterContext.Exception.StackTrace,
-                UserName = filterContext.HttpContext.User.Identity.Name,
+                
+
             };
 
-
-           var logId= _errorService.Create(error);
-
-            return logId;
+            _eventService.Create(log);
         }
 
+        
 
-
-
-
-        private string GetRuteValues(ExceptionContext filterContext)
-        {
-            var keyValues = string.Empty;
-            var keys = filterContext.RouteData.Values.Keys;
-            var values = filterContext.RouteData.Values;
-
-            foreach (var key in keys)
-            {
-                keyValues += key + " = " + (string)values[key] + " , ";
-            }
-
-            return keyValues;
-        }
 
     }
 }

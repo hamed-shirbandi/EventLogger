@@ -1,4 +1,5 @@
 ﻿using EventLogger.Mvc.Filters;
+using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -19,12 +20,16 @@ namespace EventLogger.Mvc.Example
 
 
             AreaRegistration.RegisterAllAreas();
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
 
 
+        }
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            var error = Server.GetLastError();
         }
     }
 }

@@ -49,6 +49,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -83,13 +84,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\EventLogsController.cs" />
+    <Compile Include="Filters\AuthorizeAttribute.cs" />
     <Compile Include="Filters\ErrorLogFilter.cs" />
     <Compile Include="Filters\EventLogFilter.cs" />
+    <Compile Include="Helpers\ExceptionHelper.cs" />
+    <Compile Include="Helpers\HttpRequestHelper.cs" />
+    <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="HttpModule\ErrorLogModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\img\1.png" />
-    <Content Include="Content\img\2.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EventLogger\EventLogger.csproj">
@@ -100,6 +103,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Views\EventLogs\Index.cshtml" />
+    <None Include="Views\EventLogs\Details.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

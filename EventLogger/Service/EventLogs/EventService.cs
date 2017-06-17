@@ -5,10 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using EventLogger.Enums;
 
 namespace EventLogger.Service.EventLogs
 {
-   public class EventService : IEventService
+    public class EventService : IEventService
     {
 
         #region properties
@@ -20,13 +21,14 @@ namespace EventLogger.Service.EventLogs
 
         #region Ctor
 
-        public EventService( )
+        public EventService()
         {
             _con = new EventLoggerContext();
             _Events = _con.Set<EventLog>();
         }
 
         #endregion
+
 
         #region Public Methods
 
@@ -37,45 +39,64 @@ namespace EventLogger.Service.EventLogs
         /// </summary>
         public void Create(EventLogInput input)
         {
-            var Event = new EventLog
+            var log = new EventLog
             {
                 Action = input.Action,
                 Controller = input.Controller,
                 RouteValues = input.RouteValues,
                 UserName = input.UserName,
                 CreateDateTime = DateTime.Now,
-                
+                EventLogType = input.EventLogType,
+                Ip = input.Ip,
+                HelpLink = input.HelpLink,
+                HResult = input.HResult,
+                Message = input.Message,
+                PathInfo = input.PathInfo,
+                QueryString = input.QueryString,
+                Source = input.Source,
+                StackTrace = input.StackTrace,
+                Url = input.Url,
+                UserAgent = input.UserAgent,
+
             };
 
-            _Events.Add(Event);
+            _Events.Add(log);
             _con.SaveChanges();
         }
 
-
-
-
+        
 
 
         /// <summary>
         /// 
         /// </summary>
-        public EventLogInput Get(int id)
+        public EventLogOutput Get(int id)
         {
-            var Event = _Events.FirstOrDefault(e => e.Id == id);
+            var log = _Events.FirstOrDefault(e => e.Id == id);
 
-            if (Event == null)
+            if (log == null)
             {
                 throw new Exception("Event not found in database");
             }
 
-            return new EventLogInput
+            return new EventLogOutput
             {
-                Id = Event.Id,
-                Action = Event.Action,
-                Controller = Event.Controller,
-                RouteValues = Event.RouteValues,
-                UserName = Event.UserName,
-                CreateDateTime = Event.CreateDateTime,
+                Action = log.Action,
+                Controller = log.Controller,
+                RouteValues = log.RouteValues,
+                UserName = log.UserName,
+                CreateDateTime = log.CreateDateTime,
+                EventLogType = log.EventLogType,
+                Ip = log.Ip,
+                HelpLink = log.HelpLink,
+                HResult = log.HResult,
+                Message = log.Message,
+                PathInfo = log.PathInfo,
+                QueryString = log.QueryString,
+                Source = log.Source,
+                StackTrace = log.StackTrace,
+                Url = log.Url,
+                UserAgent = log.UserAgent,
             };
         }
 
@@ -84,19 +105,31 @@ namespace EventLogger.Service.EventLogs
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<EventLogInput> Search()
+        public IEnumerable<EventLogOutput> Search(EventLogType eventLogType)
         {
-            return _Events.Select(Event => new EventLogInput
-            {
-                Id = Event.Id,
-                Action = Event.Action,
-                Controller = Event.Controller,
-                RouteValues = Event.RouteValues,
-                UserName = Event.UserName,
-                CreateDateTime = Event.CreateDateTime,
+            return _Events.Where(e => e.EventLogType == eventLogType)
+                .OrderByDescending(e => e.CreateDateTime)
+                .Select(log => new EventLogOutput
+                {
+                    Id= log.Id,
+                    Action = log.Action,
+                    Controller = log.Controller,
+                    RouteValues = log.RouteValues,
+                    UserName = log.UserName,
+                    CreateDateTime = log.CreateDateTime,
+                    EventLogType = log.EventLogType,
+                    Ip = log.Ip,
+                    HelpLink = log.HelpLink,
+                    HResult = log.HResult,
+                    Message = log.Message,
+                    PathInfo = log.PathInfo,
+                    QueryString = log.QueryString,
+                    Source = log.Source,
+                    StackTrace = log.StackTrace,
+                    Url = log.Url,
+                    UserAgent = log.UserAgent,
 
-
-            }).ToList();
+                }).ToList();
         }
 
 
@@ -107,9 +140,9 @@ namespace EventLogger.Service.EventLogs
         /// <summary>
         /// 
         /// </summary>
-        public int Count()
+        public int Count(EventLogType eventLogType)
         {
-            return _Events.Count();
+            return _Events.Count(e => e.EventLogType == eventLogType);
         }
 
 

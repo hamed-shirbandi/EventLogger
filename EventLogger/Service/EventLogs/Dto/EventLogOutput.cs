@@ -1,9 +1,9 @@
 ﻿using EventLogger.Enums;
 using System;
 
-namespace EventLogger.Domain
+namespace EventLogger.Service.EventLogs.Dto
 {
-   public class EventLog
+   public class EventLogOutput
     {
         public long Id { get; set; }
         public EventLogType EventLogType { get; set; }
@@ -16,14 +16,10 @@ namespace EventLogger.Domain
         public string PathInfo { get; set; }
         public string QueryString { get; set; }
         public string UserAgent { get; set; }
-        public string HostName { get; set; }
-        
+
 
         //ex
-        public int StatusCode { get; set; }
         public string Message { get; set; }
-        public string TypeName { get; set; }
-        public string Detail { get; set; }
         public string HelpLink { get; set; }
         public int? HResult { get; set; }
         public string Source { get; set; }

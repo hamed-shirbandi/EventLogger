@@ -22,8 +22,7 @@ namespace EventLogger.Context
 
         #region Properties
 
-        public DbSet<ErrorLog> Errors { get; set; }
-        public DbSet<EventLog> Events { get; set; }
+        public DbSet<EventLog> EventLogs { get; set; }
 
         #endregion
 

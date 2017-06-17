@@ -43,6 +43,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,15 +53,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\AppEnums.cs" />
     <Compile Include="EventLoggerConfig.cs" />
     <Compile Include="Context\EventLoggerContext.cs" />
-    <Compile Include="Domain\ErrorLog.cs" />
     <Compile Include="Domain\EventLog.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\ErrorLogs\Dto\ErrorLogInput.cs" />
-    <Compile Include="Service\ErrorLogs\ErrorService.cs" />
-    <Compile Include="Service\ErrorLogs\IErrorService.cs" />
+    <Compile Include="Service\EventLogs\Dto\EventLogOutput.cs" />
     <Compile Include="Service\EventLogs\Dto\EventLogInput.cs" />
     <Compile Include="Service\EventLogs\EventService.cs" />
     <Compile Include="Service\EventLogs\IEventService.cs" />
