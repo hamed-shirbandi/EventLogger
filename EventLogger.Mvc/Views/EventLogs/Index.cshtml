@@ -1,5 +1,12 @@
-﻿@{
-    ViewBag.Title = "Index";
-}
+﻿
+@model IEnumerable<EventLogger.Service.EventLogs.Dto.EventLogOutput>
 
-<h2> Index </h2>
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2> Index </h2>
+@foreach (var item in Model)
+{
+    <h2> Log Id =  @item.Id</h2>
+}

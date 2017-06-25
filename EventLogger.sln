@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventLogger.Mvc", "EventLogger.Mvc\EventLogger.Mvc.csproj", "{93B1293F-214B-4CA2-BA56-BB7AFE1A1495}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventLogger.Test", "EventLogger.Test\EventLogger.Test.csproj", "{F15BDB90-374B-435E-AC07-AB415E053E7D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventLogger", "EventLogger\EventLogger.csproj", "{617872F5-F122-4624-B6C7-FF7C3880F9BD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventLogger.Mvc.Example", "EventLogger.Mvc.Example\EventLogger.Mvc.Example.csproj", "{E5E16CA6-0354-4B14-A441-236A0019853D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventLogger.Mvc", "EventLogger.Mvc\EventLogger.Mvc.csproj", "{6E351C80-8274-4B55-B5BB-8D447381DEC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{93B1293F-214B-4CA2-BA56-BB7AFE1A1495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93B1293F-214B-4CA2-BA56-BB7AFE1A1495}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93B1293F-214B-4CA2-BA56-BB7AFE1A1495}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93B1293F-214B-4CA2-BA56-BB7AFE1A1495}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F15BDB90-374B-435E-AC07-AB415E053E7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F15BDB90-374B-435E-AC07-AB415E053E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F15BDB90-374B-435E-AC07-AB415E053E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{E5E16CA6-0354-4B14-A441-236A0019853D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5E16CA6-0354-4B14-A441-236A0019853D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5E16CA6-0354-4B14-A441-236A0019853D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E351C80-8274-4B55-B5BB-8D447381DEC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E351C80-8274-4B55-B5BB-8D447381DEC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E351C80-8274-4B55-B5BB-8D447381DEC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E351C80-8274-4B55-B5BB-8D447381DEC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

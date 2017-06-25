@@ -215,7 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EventLogger.Mvc\EventLogger.Mvc.csproj">
-      <Project>{93b1293f-214b-4ca2-ba56-bb7afe1a1495}</Project>
+      <Project>{6e351c80-8274-4b55-b5bb-8d447381dec1}</Project>
       <Name>EventLogger.Mvc</Name>
     </ProjectReference>
     <ProjectReference Include="..\EventLogger\EventLogger.csproj">

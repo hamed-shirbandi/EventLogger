@@ -1,15 +1,19 @@
-﻿using System;
+﻿using EventLogger.Enums;
+using EventLogger.Service.EventLogs;
+using RazorGenerator.Mvc;
+using System;
 using System.Web.Mvc;
+using System.Web.WebPages;
 
 namespace EventLogger.Mvc.Controllers
 {
-    public class EventLogsController : Controller
+    public class EventLogsController : BaseController
     {
-
+        private IEventService _eventService;
 
         public EventLogsController()
         {
-
+            _eventService = new EventService();
         }
 
 
@@ -18,10 +22,9 @@ namespace EventLogger.Mvc.Controllers
         /// </summary>
         public ActionResult Index()
         {
-            return View(); 
+            var logs = _eventService.Search(EventLogType.Error);
+            return View(logs); 
         }
-
-
 
 
         /// <summary>

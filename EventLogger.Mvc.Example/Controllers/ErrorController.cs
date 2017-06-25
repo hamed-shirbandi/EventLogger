@@ -12,7 +12,7 @@ namespace EventLogger.Mvc.Example.Controllers
 
         public ActionResult Unknown()
         {
-
+          
             return View();
         }
 
