@@ -80,6 +80,7 @@ namespace EventLogger.Mvc
                 HelpLink = ex.HelpLink,
                 HResult = ex.HResult,
                 Message = ex.Message,
+                InnerMessage = ExceptionHelper.GetInnerException(ex),
                 Source = ex.Source,
                 StackTrace = ex.StackTrace,
                 

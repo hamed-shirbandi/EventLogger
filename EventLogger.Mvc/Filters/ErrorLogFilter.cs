@@ -54,10 +54,9 @@ namespace EventLogger.Mvc
                 HelpLink = filterContext.Exception.HelpLink,
                 HResult = filterContext.Exception.HResult,
                 Message = filterContext.Exception.Message,
+                InnerMessage=ExceptionHelper.GetInnerException(filterContext.Exception),
                 Source = filterContext.Exception.Source,
                 StackTrace = filterContext.Exception.StackTrace,
-                
-
             };
 
             _eventService.Create(log);

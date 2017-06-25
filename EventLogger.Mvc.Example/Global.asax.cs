@@ -1,5 +1,4 @@
-﻿using EventLogger.Mvc.Filters;
-using System;
+﻿using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;

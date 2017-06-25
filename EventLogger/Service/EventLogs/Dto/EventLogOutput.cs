@@ -20,6 +20,8 @@ namespace EventLogger.Service.EventLogs.Dto
 
         //ex
         public string Message { get; set; }
+        public string InnerMessage { get; set; }
+
         public string HelpLink { get; set; }
         public int? HResult { get; set; }
         public string Source { get; set; }

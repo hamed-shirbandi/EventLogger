@@ -22,5 +22,16 @@ namespace EventLogger.Mvc
 
             return keyValues;
         }
+
+
+        public static string GetInnerException(Exception ex)
+        {
+            var msg = "";
+            if (ex.InnerException!=null)
+            {
+                msg= ex.InnerException.Message;
+            }
+            return msg;
+        }
     }
 }

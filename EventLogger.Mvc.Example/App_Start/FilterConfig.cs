@@ -1,5 +1,4 @@
-﻿using EventLogger.Mvc.Filters;
-using System.Data.Entity.Infrastructure.Interception;
+﻿using System.Data.Entity.Infrastructure.Interception;
 using System.Web;
 using System.Web.Mvc;
 

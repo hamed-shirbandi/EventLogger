@@ -22,6 +22,8 @@ namespace EventLogger.Domain
         //ex
         public int StatusCode { get; set; }
         public string Message { get; set; }
+        public string InnerMessage { get; set; }
+
         public string TypeName { get; set; }
         public string Detail { get; set; }
         public string HelpLink { get; set; }
