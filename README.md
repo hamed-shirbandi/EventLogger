@@ -16,16 +16,16 @@ By use this library you have following feature in your project:
 To use EventLogger in your mvc application first need to get this source and build it, then refrence bellow library to your project :
 
 ```code
-     EventLogger
-     EventLogger.Mvc
+  EventLogger
+  EventLogger.Mvc
 ```
 Now you need to add bellow code lines to your global.asax :
 
 ```code
 
-     EventLoggerConfig.Init();
-     GlobalFilters.Filters.Add(new EventLogFilter());
-     GlobalFilters.Filters.Add(new ErrorLogFilter());
+  EventLoggerConfig.Init();
+  GlobalFilters.Filters.Add(new EventLogFilter());
+  GlobalFilters.Filters.Add(new ErrorLogFilter());
 ```
 And add following lines to your application web.config :
 
