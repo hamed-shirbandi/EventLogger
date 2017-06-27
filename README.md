@@ -47,10 +47,14 @@ Thats all of we need to do !
 Now if run your project you should see the table with name EventLogs to your database.
 Click on your application menu links and do some activity and see logs in EventLogs table.
 Try to throw error and see its logs in related table.
+![EventLogger](https://github.com/hamed-shirbandi/EventLogger/blob/master/EventLogger.Mvc.Example/Content/img/1.png)
+
+# View Log Page
+To view list of logs and search and filter them enter following url in your browser : /EventLogs
+And you should see log page that allow us to filter by Event or Error types.
+![EventLogger](https://github.com/hamed-shirbandi/EventLogger/blob/master/EventLogger.Mvc.Example/Content/img/2.png)
+![EventLogger](https://github.com/hamed-shirbandi/EventLogger/blob/master/EventLogger.Mvc.Example/Content/img/3.png)
+![EventLogger](https://github.com/hamed-shirbandi/EventLogger/blob/master/EventLogger.Mvc.Example/Content/img/4.png)
 
 I hope it helps.
 Have fun.
-
-# Screenshots
-
-![EventLogger](https://github.com/hamed-shirbandi/EventLogger/blob/master/EventLogger.Mvc.Example/Content/img/1.png)
