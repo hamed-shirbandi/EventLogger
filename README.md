@@ -52,6 +52,7 @@ Try to throw error and see its logs in related table.
 
 # View Log Page
 To view list of logs and search and filter them enter following url in your browser : /EventLogs
+
 And you should see log page that allow us to filter by Event or Error types.
 
 Error Logs
