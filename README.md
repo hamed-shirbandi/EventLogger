@@ -53,8 +53,17 @@ Try to throw error and see its logs in related table.
 # View Log Page
 To view list of logs and search and filter them enter following url in your browser : /EventLogs
 And you should see log page that allow us to filter by Event or Error types.
+
+Error Logs
+-----------
 ![EventLogger](https://github.com/hamed-shirbandi/EventLogger/blob/master/EventLogger.Mvc.Example/Content/img/2.png)
+
+Event Logs
+-----------
 ![EventLogger](https://github.com/hamed-shirbandi/EventLogger/blob/master/EventLogger.Mvc.Example/Content/img/3.png)
+
+Log Detailes
+-----------
 ![EventLogger](https://github.com/hamed-shirbandi/EventLogger/blob/master/EventLogger.Mvc.Example/Content/img/4.png)
 
 I hope it helps.
