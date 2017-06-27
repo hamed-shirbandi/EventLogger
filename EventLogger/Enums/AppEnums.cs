@@ -6,4 +6,12 @@ namespace EventLogger.Enums
         Error,
         Event
     }
+
+
+    public enum SortOrder
+    {
+        Desc,
+        Asc
+    }
+
 }

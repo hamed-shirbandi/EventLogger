@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EventLogger.Service.EventLogs.Dto.EventLogOutput>
+@{
+}
+
+<thead class="thead-inverse">
+    <tr>
+        <th>Log Id</th>
+        @*<th>Code</th>*@
+        <th>Error</th>
+        <th>Source</th>
+        <th>User</th>
+        <th>Date Time</th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th scope="row">@item.Id</th>
+            @*<td>@item.StatusCode</td>*@
+            <td style="max-width:250px;text-overflow:ellipsis;white-space: nowrap;overflow: hidden;;">@item.Message</td>
+            <td>@item.Source</td>
+            <td>@item.UserName</td>
+            <td>
+                @item.CreateDateTime.ToShortDateString()
+                <br />
+                @item.CreateDateTime.ToShortTimeString()
+            </td>
+            <td>@Html.ActionLink(linkText: "Details", actionName: "Details", controllerName: "EventLogs", routeValues: new { id = item.Id }, htmlAttributes: new { @class = "", target = "_blank" })</td>
+        </tr>
+    }
+</tbody>

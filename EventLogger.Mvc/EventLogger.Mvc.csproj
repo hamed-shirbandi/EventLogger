@@ -132,6 +132,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Details.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EventLogs\_ErrorLogs.generated.cs">
+      <DependentUpon>_ErrorLogs.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\EventLogs\_EventLogs.generated.cs">
+      <DependentUpon>_EventLogs.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Views\EventLogs\Index.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -175,6 +185,16 @@
   <ItemGroup>
     <Content Include="web.config" />
     <Content Include="Views\razorgenerator.directives" />
+    <Content Include="Views\EventLogs\_EventLogs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_EventLogs.generated.cs</LastGenOutput>
+      <CustomToolNamespace>EventLogger.Mvc.Views</CustomToolNamespace>
+    </Content>
+    <Content Include="Views\EventLogs\_ErrorLogs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_ErrorLogs.generated.cs</LastGenOutput>
+      <CustomToolNamespace>EventLogger.Mvc.Views</CustomToolNamespace>
+    </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

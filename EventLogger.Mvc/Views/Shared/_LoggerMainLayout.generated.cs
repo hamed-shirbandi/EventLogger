@@ -122,14 +122,12 @@ WriteLiteral("\r\n        <hr />\r\n        <footer>\r\n            <p>\r\n     
 
 WriteLiteral(" href=\"https://github.com/hamed-shirbandi/EventLogger\"");
 
-WriteLiteral(">EventLogger</a>\r\n\r\n                ");
-
-WriteLiteral("\r\n            </p>\r\n        </footer>\r\n    </div>\r\n\r\n");
+WriteLiteral(">EventLogger</a> \r\n            </p>\r\n        </footer>\r\n    </div>\r\n\r\n");
 
 WriteLiteral("    ");
 
             
-            #line 32 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
+            #line 30 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
 Write(Scripts.Render("~/bundles/jquery"));
 
             
@@ -140,7 +138,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 33 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
+            #line 31 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
 Write(Scripts.Render("~/bundles/bootstrap"));
 
             
@@ -151,7 +149,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 34 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
+            #line 32 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
 Write(RenderSection("scripts", required: false));
 
             

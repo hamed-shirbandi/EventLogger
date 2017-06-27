@@ -1,38 +1,57 @@
 ﻿@model IEnumerable<EventLogger.Service.EventLogs.Dto.EventLogOutput>
-
+@using EventLogger.Enums;
 @{
     ViewBag.Title = "Log View";
     Layout = "~/Views/Shared/_LoggerMainLayout.cshtml";
 }
-<table class="table table-striped">
-    <thead class="thead-inverse">
-        <tr>
-            <th>Log Id</th>
-            @*<th>Code</th>*@
-            <th>Error</th>
-            <th>Source</th>
-            <th>User</th>
-            <th>Date Time</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <th scope="row">@item.Id</th>
-                @*<td>@item.StatusCode</td>*@
-                <td style="max-width:250px;text-overflow:ellipsis;white-space: nowrap;overflow: hidden;;">@item.Message</td>
-                <td>@item.Source</td>
-                <td>@item.UserName</td>
-                <td>
-                    @item.CreateDateTime.ToShortDateString()
-                    <br />
-                    @item.CreateDateTime.ToShortTimeString()
-                </td>
-                <td>@Html.ActionLink(linkText: "Details", actionName: "Details", controllerName: "EventLogs", routeValues:new {id=item.Id },htmlAttributes:new { @class="",target="_blank"})</td>
-            </tr>
-        }
-        
-    </tbody>
-</table>
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @using (Html.BeginForm(actionName: "index", controllerName: "EventLogs", routeValues: new { }, method: FormMethod.Get, htmlAttributes: new { @class = "form-inline" }))
+            {
+                <div class="form-group">
+                    @Html.TextBox("term",null,new { @class = "form-control", @placeholder = "search something" })
+                </div>
+                <div class="form-group">
+                    @Html.DropDownList("EventLogType", null, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.DropDownList("SortOrder", null, new { @class = "form-control" })
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            }
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                @if (ViewBag.CurrentEventLogType == EventLogType.Error)
+                {
+                    @Html.Partial("_ErrorLogs", Model)
+                }
+                else
+                {
+                    @Html.Partial("_EventLogs", Model)
+                }
+
+            </table>
+            <div style="">
+                <ul class="pagination">
+                    @for (int i = 1; i <= ViewBag.PageSize; i++)
+                    {
+                        <li @if (i == ViewBag.CurrentPage) { <text> class="active" </text>      }>
+                            <a href="@Url.Action(actionName:"index",controllerName: "EventLogs", routeValues:new { page=i,term= Request.QueryString["term"], sortOrder = Request.QueryString["sortOrder"], eventLogType = Request.QueryString["eventLogType"]})">
+                                @i
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            @if (ViewBag.PageSize>0)
+            {
+                <div>
+                    page @ViewBag.CurrentPage of @ViewBag.PageSize - total count is @ViewBag.TotalItemCount
+                </div>
+            }
+          
+        </div>
+    </div>
+</div>

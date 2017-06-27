@@ -8,7 +8,8 @@ namespace EventLogger.Service.EventLogs
     {
         void Create(EventLogInput input);
         EventLogOutput Get(int id);
-        IEnumerable<EventLogOutput> Search(EventLogType eventLogType);
+        IEnumerable<EventLogOutput> Search(EventLogType eventLogType, int page, int recordsPerPage, string term, SortOrder sortOrder, out int pageSize, out int TotalItemCount);
+
         int Count(EventLogType eventLogType);
     }
 }

@@ -3,6 +3,7 @@ using EventLogger.Service.EventLogs;
 using RazorGenerator.Mvc;
 using System;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 using System.Web.WebPages;
 
 namespace EventLogger.Mvc.Controllers
@@ -10,19 +11,40 @@ namespace EventLogger.Mvc.Controllers
     public class EventLogsController : BaseController
     {
         private IEventService _eventService;
+        private int pageSize;
+        private int recordsPerPage;
+        private int TotalItemCount;
+
 
         public EventLogsController()
         {
             _eventService = new EventService();
+            pageSize = 0;
+            recordsPerPage = 5;
+            TotalItemCount = 0;
         }
 
 
         /// <summary>
         /// 
         /// </summary>
-        public ActionResult Index()
+        public ActionResult Index(int page=1, string term = "", SortOrder sortOrder= SortOrder.Desc, EventLogType eventLogType= EventLogType.Error)
         {
-            var logs = _eventService.Search(EventLogType.Error);
+
+            var logs = _eventService.Search(eventLogType: eventLogType, page: page,recordsPerPage:recordsPerPage,term: term,  sortOrder: sortOrder, pageSize: out pageSize, TotalItemCount: out TotalItemCount);
+
+            #region ViewBags
+
+            ViewBag.EventLogType = EnumHelper.GetSelectList(type:typeof(EventLogType));
+            ViewBag.SortOrder = EnumHelper.GetSelectList(typeof(SortOrder));
+            ViewBag.CurrentEventLogType = eventLogType;
+            ViewBag.Term = term;
+            ViewBag.PageSize = pageSize;
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalItemCount = TotalItemCount;
+
+
+            #endregion
             return View(logs); 
         }
 
