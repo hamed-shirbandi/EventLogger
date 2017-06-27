@@ -11,7 +11,7 @@ By use this library you have following feature in your project:
 - Url to see Logs by search and filtering.
 - Authorize log page Url by your Application Roles.
 
-# How to use ?
+# Setting Up
 
 To use EventLogger in your mvc application first need to get this source and build it, then refrence bellow library to your project :
 
@@ -48,6 +48,7 @@ Now if run your project you should see the table with name EventLogs to your dat
 Click on your application menu links and do some activity and see logs in EventLogs table.
 Try to throw error and see its logs in related table.
 ![EventLogger](https://github.com/hamed-shirbandi/EventLogger/blob/master/EventLogger.Mvc.Example/Content/img/1.png)
+
 
 # View Log Page
 To view list of logs and search and filter them enter following url in your browser : /EventLogs
