@@ -39,7 +39,7 @@ namespace EventLogger.Mvc
                 UserAgent=filterContext.HttpContext.Request.UserAgent,
                 Ip=filterContext.HttpContext.Request.UserHostAddress,
                 PathInfo= filterContext.HttpContext.Request.PathInfo,
-                
+                StatusCode = filterContext.HttpContext.Response.StatusCode,
 
 
             };

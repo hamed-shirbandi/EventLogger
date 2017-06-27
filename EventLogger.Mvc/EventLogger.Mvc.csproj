@@ -137,28 +137,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Shared\_Layout.generated.cs">
+    <Compile Include="Views\Shared\_LoggerMainLayout.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>_Layout.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\_ViewStart.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_ViewStart.cshtml</DependentUpon>
+      <DependentUpon>_LoggerMainLayout.cshtml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml">
+    <Content Include="Views\Shared\_LoggerMainLayout.cshtml">
       <CustomToolNamespace>EventLogger.Mvc.Views</CustomToolNamespace>
       <Generator>RazorGenerator</Generator>
-      <LastGenOutput>_ViewStart.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\Shared\_Layout.cshtml">
-      <CustomToolNamespace>EventLogger.Mvc.Views</CustomToolNamespace>
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>_Layout.generated.cs</LastGenOutput>
+      <LastGenOutput>_LoggerMainLayout.generated.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

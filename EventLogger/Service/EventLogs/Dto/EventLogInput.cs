@@ -19,6 +19,7 @@ namespace EventLogger.Service.EventLogs.Dto
 
 
         //ex
+        public int StatusCode { get; set; }
         public string Message { get; set; }
         public string InnerMessage { get; set; }
         public string HelpLink { get; set; }

@@ -30,10 +30,10 @@ namespace EventLogger.Mvc.Views
     using EventLogger.Mvc;
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
-    [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Shared/_Layout.cshtml")]
-    public partial class _Layout : System.Web.Mvc.WebViewPage<dynamic>
+    [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Shared/_LoggerMainLayout.cshtml")]
+    public partial class _LoggerMainLayout : System.Web.Mvc.WebViewPage<dynamic>
     {
-        public _Layout()
+        public _LoggerMainLayout()
         {
         }
         public override void Execute()
@@ -51,7 +51,7 @@ WriteLiteral(" content=\"width=device-width, initial-scale=1.0\"");
 WriteLiteral(">\r\n    <title>");
 
             
-            #line 6 "..\..\Views\Shared\_Layout.cshtml"
+            #line 6 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
       Write(ViewBag.Title);
 
             
@@ -62,7 +62,7 @@ WriteLiteral(" - My ASP.NET Application</title>\r\n");
 WriteLiteral("    ");
 
             
-            #line 7 "..\..\Views\Shared\_Layout.cshtml"
+            #line 7 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
 Write(Styles.Render("~/Content/css"));
 
             
@@ -73,7 +73,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 8 "..\..\Views\Shared\_Layout.cshtml"
+            #line 8 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
 Write(Scripts.Render("~/bundles/modernizr"));
 
             
@@ -91,76 +91,18 @@ WriteLiteral(">\r\n            <div");
 
 WriteLiteral(" class=\"navbar-header\"");
 
-WriteLiteral(">\r\n                <button");
-
-WriteLiteral(" type=\"button\"");
-
-WriteLiteral(" class=\"navbar-toggle\"");
-
-WriteLiteral(" data-toggle=\"collapse\"");
-
-WriteLiteral(" data-target=\".navbar-collapse\"");
-
-WriteLiteral(">\r\n                    <span");
-
-WriteLiteral(" class=\"icon-bar\"");
-
-WriteLiteral("></span>\r\n                    <span");
-
-WriteLiteral(" class=\"icon-bar\"");
-
-WriteLiteral("></span>\r\n                    <span");
-
-WriteLiteral(" class=\"icon-bar\"");
-
-WriteLiteral("></span>\r\n                </button>\r\n");
+WriteLiteral(">\r\n             \r\n");
 
 WriteLiteral("                ");
 
             
-            #line 19 "..\..\Views\Shared\_Layout.cshtml"
-           Write(Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }));
+            #line 15 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
+           Write(Html.ActionLink("EventLogger Log List", "Index", "EventLogs", new { area = "" }, new { @class = "navbar-brand" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n            </div>\r\n            <div");
-
-WriteLiteral(" class=\"navbar-collapse collapse\"");
-
-WriteLiteral(">\r\n                <ul");
-
-WriteLiteral(" class=\"nav navbar-nav\"");
-
-WriteLiteral(">\r\n                    <li>");
-
-            
-            #line 23 "..\..\Views\Shared\_Layout.cshtml"
-                   Write(Html.ActionLink("Home", "Index", "Home"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</li>\r\n                    <li>");
-
-            
-            #line 24 "..\..\Views\Shared\_Layout.cshtml"
-                   Write(Html.ActionLink("About", "About", "Home"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</li>\r\n                    <li>");
-
-            
-            #line 25 "..\..\Views\Shared\_Layout.cshtml"
-                   Write(Html.ActionLink("Contact", "Contact", "Home"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n   " +
-" <div");
+WriteLiteral("\r\n            </div>\r\n            \r\n        </div>\r\n    </div>\r\n    <div");
 
 WriteLiteral(" class=\"container body-content\"");
 
@@ -169,27 +111,25 @@ WriteLiteral(">\r\n");
 WriteLiteral("        ");
 
             
-            #line 31 "..\..\Views\Shared\_Layout.cshtml"
+            #line 21 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
    Write(RenderBody());
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        <hr />\r\n        <footer>\r\n            <p>&copy; ");
+WriteLiteral("\r\n        <hr />\r\n        <footer>\r\n            <p>\r\n                powered by <" +
+"a");
 
-            
-            #line 34 "..\..\Views\Shared\_Layout.cshtml"
-                 Write(DateTime.Now.Year);
+WriteLiteral(" href=\"https://github.com/hamed-shirbandi/EventLogger\"");
 
-            
-            #line default
-            #line hidden
-WriteLiteral(" - My ASP.NET Application</p>\r\n        </footer>\r\n    </div>\r\n\r\n");
+WriteLiteral(">EventLogger</a>\r\n\r\n                ");
+
+WriteLiteral("\r\n            </p>\r\n        </footer>\r\n    </div>\r\n\r\n");
 
 WriteLiteral("    ");
 
             
-            #line 38 "..\..\Views\Shared\_Layout.cshtml"
+            #line 32 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
 Write(Scripts.Render("~/bundles/jquery"));
 
             
@@ -200,7 +140,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 39 "..\..\Views\Shared\_Layout.cshtml"
+            #line 33 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
 Write(Scripts.Render("~/bundles/bootstrap"));
 
             
@@ -211,7 +151,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 40 "..\..\Views\Shared\_Layout.cshtml"
+            #line 34 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
 Write(RenderSection("scripts", required: false));
 
             

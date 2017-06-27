@@ -1,7 +1,96 @@
-﻿
+﻿@model EventLogger.Service.EventLogs.Dto.EventLogOutput
+
 @{
     ViewBag.Title = "Details";
-}
+    Layout = "~/Views/Shared/_LoggerMainLayout.cshtml";
 
-<h2> Details </h2>
-asdsad
+}
+<div style="margin-top:20px;">
+
+    @if (Model.EventLogType == EventLogger.Enums.EventLogType.Error)
+    {
+        <div class="">
+            <strong>Source :</strong>
+            <h2> @Model.Source </h2>
+            <hr />
+        </div>
+        <div class="">
+            <strong>Message :</strong>
+            <p> @Model.Message </p>
+            <hr />
+        </div>
+        <div class="">
+            <strong>StackTrace :</strong>
+            <p class="alert alert-warning">
+                @Model.StackTrace
+            </p>
+            <hr />
+        </div>
+        <div class="">
+            <strong>InnerMessage :</strong>
+            @Model.InnerMessage
+            <hr />
+        </div>
+        <div class="">
+            <strong>HelpLink :</strong>
+            @Model.HelpLink
+            <hr />
+        </div>
+        <div class="">
+            <strong>HResult :</strong>
+            @Model.HResult
+            <hr />
+        </div>
+
+    }
+    <div class="">
+        <strong>StatusCode :</strong>
+        @Model.StatusCode
+        <hr />
+    </div>
+    <div class="">
+        <strong>Date Time :</strong>
+        @Model.CreateDateTime
+        <hr />
+    </div>
+    <div class="">
+        <strong>User :</strong>
+        @Model.UserName
+        <hr />
+    </div>
+    <div class="">
+        <strong>Url :</strong>
+        @Model.Url
+        <hr />
+    </div>
+    <div class="">
+        <strong>UserAgent :</strong>
+        @Model.UserAgent
+        <hr />
+    </div>
+    <div class="">
+        <strong>Controller :</strong>
+        @Model.Controller
+        <hr />
+    </div>
+    <div class="">
+        <strong>Action :</strong>
+        @Model.Action
+        <hr />
+    </div>
+    <div class="">
+        <strong>RouteValues :</strong>
+        @Model.RouteValues
+        <hr />
+    </div>
+    <div class="">
+        <strong>PathInfo :</strong>
+        @Model.PathInfo
+        <hr />
+    </div>
+    <div class="">
+        <strong>QueryString :</strong>
+        @Model.QueryString
+    </div>
+
+</div>

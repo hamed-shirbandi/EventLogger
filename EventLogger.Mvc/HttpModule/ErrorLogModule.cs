@@ -76,7 +76,7 @@ namespace EventLogger.Mvc
                 UserAgent = context.Request.UserAgent,
                 Ip = context.Request.UserHostAddress,
                 PathInfo = context.Request.PathInfo,
-
+                StatusCode = context.Response.StatusCode,
                 HelpLink = ex.HelpLink,
                 HResult = ex.HResult,
                 Message = ex.Message,

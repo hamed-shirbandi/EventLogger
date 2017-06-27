@@ -32,9 +32,8 @@ namespace EventLogger.Mvc.Controllers
         /// </summary>
         public ActionResult Details(int id)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var log = _eventService.Get(id);
+            return View(log);
         }
 
     }

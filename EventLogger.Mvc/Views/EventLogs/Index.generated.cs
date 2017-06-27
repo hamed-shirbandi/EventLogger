@@ -38,50 +38,132 @@ namespace EventLogger.Mvc.Views
         }
         public override void Execute()
         {
-WriteLiteral("\r\n");
-
             
-            #line 4 "..\..\Views\EventLogs\Index.cshtml"
-    
-            
-            #line default
-            #line hidden
-            
-            #line 4 "..\..\Views\EventLogs\Index.cshtml"
-      
-        ViewBag.Title = "Index";
-    
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n\r\n    <h2> Index </h2>\r\n");
-
-            
-            #line 9 "..\..\Views\EventLogs\Index.cshtml"
- foreach (var item in Model)
-{
+            #line 3 "..\..\Views\EventLogs\Index.cshtml"
+  
+    ViewBag.Title = "Log View";
+    Layout = "~/Views/Shared/_LoggerMainLayout.cshtml";
 
             
             #line default
             #line hidden
-WriteLiteral("    <h2> Log Id =  ");
+WriteLiteral("\r\n<table");
+
+WriteLiteral(" class=\"table table-striped\"");
+
+WriteLiteral(">\r\n    <thead");
+
+WriteLiteral(" class=\"thead-inverse\"");
+
+WriteLiteral(">\r\n        <tr>\r\n            <th>Log Id</th>\r\n            ");
+
+WriteLiteral("\r\n            <th>Error</th>\r\n            <th>Source</th>\r\n            <th>User</" +
+"th>\r\n            <th>Date Time</th>\r\n            <th></th>\r\n        </tr>\r\n    <" +
+"/thead>\r\n    <tbody>\r\n");
 
             
-            #line 11 "..\..\Views\EventLogs\Index.cshtml"
-              Write(item.Id);
+            #line 20 "..\..\Views\EventLogs\Index.cshtml"
+        
+            
+            #line default
+            #line hidden
+            
+            #line 20 "..\..\Views\EventLogs\Index.cshtml"
+         foreach (var item in Model)
+        {
 
             
             #line default
             #line hidden
-WriteLiteral("</h2>\r\n");
+WriteLiteral("            <tr>\r\n                <th");
+
+WriteLiteral(" scope=\"row\"");
+
+WriteLiteral(">");
 
             
-            #line 12 "..\..\Views\EventLogs\Index.cshtml"
-}
+            #line 23 "..\..\Views\EventLogs\Index.cshtml"
+                           Write(item.Id);
 
             
             #line default
             #line hidden
+WriteLiteral("</th>\r\n                ");
+
+WriteLiteral("\r\n                <td");
+
+WriteLiteral(" style=\"max-width:250px;text-overflow:ellipsis;white-space: nowrap;overflow: hidd" +
+"en;;\"");
+
+WriteLiteral(">");
+
+            
+            #line 25 "..\..\Views\EventLogs\Index.cshtml"
+                                                                                                     Write(item.Message);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n                <td>");
+
+            
+            #line 26 "..\..\Views\EventLogs\Index.cshtml"
+               Write(item.Source);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n                <td>");
+
+            
+            #line 27 "..\..\Views\EventLogs\Index.cshtml"
+               Write(item.UserName);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n                <td>\r\n");
+
+WriteLiteral("                    ");
+
+            
+            #line 29 "..\..\Views\EventLogs\Index.cshtml"
+               Write(item.CreateDateTime.ToShortDateString());
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n                    <br />\r\n");
+
+WriteLiteral("                    ");
+
+            
+            #line 31 "..\..\Views\EventLogs\Index.cshtml"
+               Write(item.CreateDateTime.ToShortTimeString());
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n                </td>\r\n                <td>");
+
+            
+            #line 33 "..\..\Views\EventLogs\Index.cshtml"
+               Write(Html.ActionLink(linkText: "Details", actionName: "Details", controllerName: "EventLogs", routeValues:new {id=item.Id },htmlAttributes:new { @class="",target="_blank"}));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n            </tr>\r\n");
+
+            
+            #line 35 "..\..\Views\EventLogs\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        \r\n    </tbody>\r\n</table>\r\n");
+
         }
     }
 }

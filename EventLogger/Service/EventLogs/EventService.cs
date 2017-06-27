@@ -29,7 +29,6 @@ namespace EventLogger.Service.EventLogs
 
         #endregion
 
-
         #region Public Methods
 
 
@@ -50,6 +49,7 @@ namespace EventLogger.Service.EventLogs
                 Ip = input.Ip,
                 HelpLink = input.HelpLink,
                 HResult = input.HResult,
+                StatusCode = input.StatusCode,
                 Message = input.Message,
                 InnerMessage = input.InnerMessage,
                 PathInfo = input.PathInfo,
@@ -82,6 +82,7 @@ namespace EventLogger.Service.EventLogs
 
             return new EventLogOutput
             {
+                Id= log.Id,
                 Action = log.Action,
                 Controller = log.Controller,
                 RouteValues = log.RouteValues,
@@ -91,6 +92,7 @@ namespace EventLogger.Service.EventLogs
                 Ip = log.Ip,
                 HelpLink = log.HelpLink,
                 HResult = log.HResult,
+                StatusCode = log.StatusCode,
                 Message = log.Message,
                 InnerMessage = log.InnerMessage,
                 PathInfo = log.PathInfo,
@@ -123,6 +125,7 @@ namespace EventLogger.Service.EventLogs
                     Ip = log.Ip,
                     HelpLink = log.HelpLink,
                     HResult = log.HResult,
+                    StatusCode = log.StatusCode,
                     Message = log.Message,
                     InnerMessage = log.InnerMessage,
                     PathInfo = log.PathInfo,

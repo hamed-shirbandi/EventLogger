@@ -16,17 +16,18 @@ namespace EventLogger.Service.EventLogs.Dto
         public string PathInfo { get; set; }
         public string QueryString { get; set; }
         public string UserAgent { get; set; }
+        public DateTime CreateDateTime { get; set; }
 
 
         //ex
+
+        public int StatusCode { get; set; }
         public string Message { get; set; }
         public string InnerMessage { get; set; }
-
         public string HelpLink { get; set; }
         public int? HResult { get; set; }
         public string Source { get; set; }
         public string StackTrace { get; set; }
-        public DateTime CreateDateTime { get; set; }
 
     }
 }
