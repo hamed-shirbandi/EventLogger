@@ -1,14 +1,14 @@
 # What is this ?
 
-EventLogger is an simple way to log every thing in Asp.net Mvc projects that use Entity Framework Code First.
+EventLogger is a simple way to log everything in Asp.Net Mvc projects that use Entity Framework Code First.
 
-By use this library you have following feature in your project:
-- Automatic log all of event such as view item, delete item, login and ...
-- Automatic log all of errors during request even customErrors mode is on
-- Log all type of errors over the asp pipeline.
-- Automatic add log table to your database.
-- Manual log in over the application code.
-- Url to see Logs by search and filtering.
+By using this library you will have the following features in your project:
+- Automatically logging all of the events such as viewing an item, deleting an item, logging in, etc.
+- Automatically logging all of the errors for each request, even when customErrors mode is on
+- Logging all types of errors over the ASP.NET HTTP Request Process Pipeline.
+- Automatically adding  a log table to your database.
+- Manually log anything in the application code.
+- Url to see logs, with search and filtering capabilities.
 - Authorize log page Url by your Application Roles.
 
 # Setting Up
