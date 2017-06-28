@@ -9,7 +9,7 @@ By using this library you will have the following features in your project:
 - Automatically adding  a log table to your database.
 - Manually log anything in the application code.
 - Url to see logs, with search and filtering capabilities.
-- Authorizeing users by roles to see log page.
+- Authorizing users by roles to see log page.
 
 # How to use?
 
