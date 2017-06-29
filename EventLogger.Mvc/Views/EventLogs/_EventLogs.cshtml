@@ -5,10 +5,10 @@
 <thead class="thead-inverse">
     <tr>
         <th>Log Id</th>
-        @*<th>Code</th>*@
         <th>Controller</th>
         <th>Action</th>
         <th>Route Values</th>
+        <th>User</th>
         <th>Date Time</th>
         <th></th>
     </tr>
@@ -18,10 +18,10 @@
     {
         <tr>
             <th scope="row">@item.Id</th>
-            @*<td>@item.StatusCode</td>*@
             <td>@item.Controller</td>
             <td>@item.Action</td>
             <td>@item.RouteValues</td>
+            <td>@item.UserName</td>
             <td>
                 @item.CreateDateTime.ToShortDateString()
                 <br />

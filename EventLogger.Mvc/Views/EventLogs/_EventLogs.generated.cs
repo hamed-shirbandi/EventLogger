@@ -49,11 +49,9 @@ WriteLiteral("\r\n\r\n<thead");
 
 WriteLiteral(" class=\"thead-inverse\"");
 
-WriteLiteral(">\r\n    <tr>\r\n        <th>Log Id</th>\r\n        ");
-
-WriteLiteral("\r\n        <th>Controller</th>\r\n        <th>Action</th>\r\n        <th>Route Values<" +
-"/th>\r\n        <th>Date Time</th>\r\n        <th></th>\r\n    </tr>\r\n</thead>\r\n<tbody" +
-">\r\n");
+WriteLiteral(">\r\n    <tr>\r\n        <th>Log Id</th>\r\n        <th>Controller</th>\r\n        <th>Ac" +
+"tion</th>\r\n        <th>Route Values</th>\r\n        <th>User</th>\r\n        <th>Dat" +
+"e Time</th>\r\n        <th></th>\r\n    </tr>\r\n</thead>\r\n<tbody>\r\n");
 
             
             #line 17 "..\..\Views\EventLogs\_EventLogs.cshtml"
@@ -82,12 +80,10 @@ WriteLiteral(">");
             
             #line default
             #line hidden
-WriteLiteral("</th>\r\n            ");
-
-WriteLiteral("\r\n            <td>");
+WriteLiteral("</th>\r\n            <td>");
 
             
-            #line 22 "..\..\Views\EventLogs\_EventLogs.cshtml"
+            #line 21 "..\..\Views\EventLogs\_EventLogs.cshtml"
            Write(item.Controller);
 
             
@@ -96,7 +92,7 @@ WriteLiteral("\r\n            <td>");
 WriteLiteral("</td>\r\n            <td>");
 
             
-            #line 23 "..\..\Views\EventLogs\_EventLogs.cshtml"
+            #line 22 "..\..\Views\EventLogs\_EventLogs.cshtml"
            Write(item.Action);
 
             
@@ -105,8 +101,17 @@ WriteLiteral("</td>\r\n            <td>");
 WriteLiteral("</td>\r\n            <td>");
 
             
-            #line 24 "..\..\Views\EventLogs\_EventLogs.cshtml"
+            #line 23 "..\..\Views\EventLogs\_EventLogs.cshtml"
            Write(item.RouteValues);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n            <td>");
+
+            
+            #line 24 "..\..\Views\EventLogs\_EventLogs.cshtml"
+           Write(item.UserName);
 
             
             #line default
