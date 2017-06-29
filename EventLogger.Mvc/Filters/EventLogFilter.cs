@@ -25,23 +25,12 @@ namespace EventLogger.Mvc
 
         private void LogEvent(ActionExecutingContext filterContext)
         {
-           
-            var log = new EventLogInput
-            {
-                EventLogType= EventLogType.Event,
-                Action = HttpRequestHelper.GetActionName(filterContext.RouteData),
-                Controller = HttpRequestHelper.GetControllerName(filterContext.RouteData),
-                RouteValues= HttpRequestHelper.GetRuteValues(filterContext.RouteData),
-                UserName = HttpRequestHelper.GetCurrentUserName(filterContext.HttpContext),
-                QueryString = HttpRequestHelper.GetQueryString(filterContext.HttpContext),
-                Url = HttpRequestHelper.GetUrl(filterContext.HttpContext),
-                UserAgent = HttpRequestHelper.GetUserAgent(filterContext.HttpContext),
-                Ip = HttpRequestHelper.GetIpAddress(filterContext.HttpContext),
-                PathInfo = HttpRequestHelper.GetPathInfo(filterContext.HttpContext),
+            var httpContext = filterContext.HttpContext;
+            var routeData = filterContext.RouteData;
 
-
-            };
-
+            var log = HttpRequestHelper.GetHttpRequestInfo(httpContext, routeData);
+            log.EventLogType = EventLogType.Event;
+            
             _eventService.Create(log);
         }
 

@@ -4,10 +4,10 @@ using EventLogger.Service.EventLogs.Dto;
 using System;
 using System.Web;
 
-namespace EventLogger.Mvc
+namespace EventLogger
 {
 
-    public class ErrorLogModule : IHttpModule// move to EventLogger
+    public class ErrorLogModule : IHttpModule
     {
 
         private readonly IEventService _eventService;
@@ -58,26 +58,12 @@ namespace EventLogger.Mvc
         /// <summary>
         /// 
         /// </summary>
-        private void LogError(Exception ex, HttpContextBase context)
+        private void LogError(Exception exception, HttpContextBase httpContext)
         {
-           
-            var log = new EventLogInput
-            {
-                EventLogType = EventLogType.Error,
-                QueryString = context.Request.Url.Query,
-                Url = context.Request.Path,
-                UserAgent = context.Request.UserAgent,
-                Ip = context.Request.UserHostAddress,
-                PathInfo = context.Request.PathInfo,
-                StatusCode = ExceptionHelper.GetErrorStatusCode(ex),
-                HelpLink = ex.HelpLink,
-                HResult = ex.HResult,
-                Message = ex.Message,
-                InnerMessage = ExceptionHelper.GetInnerException(ex),
-                Source = ex.Source,
-                StackTrace = ex.StackTrace,
-                
-            };
+
+            var log = HttpRequestHelper.GetHttpRequestInfo(httpContext, null);
+            log = ExceptionHelper.GetExceptionInfo(exception, log);
+            log.EventLogType = EventLogType.Error;
 
             _eventService.Create(log);
 

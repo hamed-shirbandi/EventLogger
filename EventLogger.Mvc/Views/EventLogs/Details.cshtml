@@ -10,13 +10,23 @@
     @if (Model.EventLogType == EventLogger.Enums.EventLogType.Error)
     {
         <div class="">
-            <strong>Source :</strong>
-            <h2> @Model.Source </h2>
+            <h3> @Model.Message </h3>
+            <h4 class="text-primary"> @Model.TypeName </h4><br />
+        </div>
+        <div class="">
+            <p class="alert alert-warning">
+                @Model.Details
+            </p>
             <hr />
         </div>
         <div class="">
-            <strong>StatusCode :</strong>
+            <strong>Status Code :</strong>
             @Model.StatusCode
+            <hr />
+        </div>
+        <div class="">
+            <strong>Source :</strong>
+            <p> @Model.Source </p>
             <hr />
         </div>
         <div class="">
@@ -25,19 +35,12 @@
             <hr />
         </div>
         <div class="">
-            <strong>StackTrace :</strong>
-            <p class="alert alert-warning">
-                @Model.StackTrace
-            </p>
-            <hr />
-        </div>
-        <div class="">
-            <strong>InnerMessage :</strong>
+            <strong>Inner Message :</strong>
             @Model.InnerMessage
             <hr />
         </div>
         <div class="">
-            <strong>HelpLink :</strong>
+            <strong>Help Link :</strong>
             @Model.HelpLink
             <hr />
         </div>
@@ -54,17 +57,28 @@
         <hr />
     </div>
     <div class="">
+        <strong>Machine Name :</strong>
+        @Model.MachineName
+        <hr />
+    </div>
+    <div class="">
+        <strong>Host Name :</strong>
+        @Model.UserHostName
+        <hr />
+    </div>
+
+    <div class="">
+        <strong>IP Address :</strong>
+        @Model.Ip
+        <hr />
+    </div>
+    <div class="">
         <strong>User :</strong>
         @Model.UserName
         <hr />
     </div>
     <div class="">
-        <strong>Url :</strong>
-        @Model.Url
-        <hr />
-    </div>
-    <div class="">
-        <strong>UserAgent :</strong>
+        <strong>User Agent :</strong>
         @Model.UserAgent
         <hr />
     </div>
@@ -79,18 +93,49 @@
         <hr />
     </div>
     <div class="">
-        <strong>RouteValues :</strong>
+        <strong>Route Values :</strong>
         @Model.RouteValues
         <hr />
     </div>
     <div class="">
-        <strong>PathInfo :</strong>
+        <strong>Url :</strong>
+        @Model.Url
+        <hr />
+    </div>
+    <div class="">
+        <strong>Path Info :</strong>
         @Model.PathInfo
         <hr />
     </div>
     <div class="">
         <strong>QueryString :</strong>
         @Model.QueryString
+        <hr />
+    </div>
+    <div class="">
+        <strong>Physical Path :</strong>
+        @Model.PhysicalPath
+        <hr />
+    </div>
+    <div class="">
+        <strong>Physical Application Path :</strong>
+        @Model.PhysicalApplicationPath
+        <hr />
+    </div>
+    <div class="">
+        <strong>Form :</strong>
+        @Model.Form
+        <hr />
+    </div>
+    <div class="">
+        <strong>Cookies :</strong>
+        @Model.Cookies
+        <hr />
+    </div>
+    <div class="">
+        <strong>Server Variables :</strong>
+        @Model.ServerVariables
+        <hr />
     </div>
 
 </div>

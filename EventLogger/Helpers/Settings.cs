@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace EventLogger.Mvc
+namespace EventLogger
 {
     internal class Settings
     {

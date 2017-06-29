@@ -122,10 +122,6 @@
     <Compile Include="Filters\AuthorizeAttribute.cs" />
     <Compile Include="Filters\ErrorLogFilter.cs" />
     <Compile Include="Filters\EventLogFilter.cs" />
-    <Compile Include="Helpers\ExceptionHelper.cs" />
-    <Compile Include="Helpers\HttpRequestHelper.cs" />
-    <Compile Include="Helpers\Settings.cs" />
-    <Compile Include="HttpModule\ErrorLogModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\EventLogs\Details.generated.cs">
       <AutoGen>True</AutoGen>

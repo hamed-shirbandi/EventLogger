@@ -72,27 +72,61 @@ WriteLiteral("        <div");
 
 WriteLiteral(" class=\"\"");
 
-WriteLiteral(">\r\n            <strong>Source :</strong>\r\n            <h2> ");
+WriteLiteral(">\r\n            <h3> ");
 
             
-            #line 14 "..\..\Views\EventLogs\Details.cshtml"
-            Write(Model.Source);
+            #line 13 "..\..\Views\EventLogs\Details.cshtml"
+            Write(Model.Message);
 
             
             #line default
             #line hidden
-WriteLiteral(" </h2>\r\n            <hr />\r\n        </div>\r\n");
+WriteLiteral(" </h3>\r\n            <h4");
+
+WriteLiteral(" class=\"text-primary\"");
+
+WriteLiteral("> ");
+
+            
+            #line 14 "..\..\Views\EventLogs\Details.cshtml"
+                                 Write(Model.TypeName);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" </h4><br />\r\n        </div>\r\n");
 
 WriteLiteral("        <div");
 
 WriteLiteral(" class=\"\"");
 
-WriteLiteral(">\r\n            <strong>StatusCode :</strong>\r\n");
+WriteLiteral(">\r\n            <p");
+
+WriteLiteral(" class=\"alert alert-warning\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 18 "..\..\Views\EventLogs\Details.cshtml"
+           Write(Model.Details);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </p>\r\n            <hr />\r\n        </div>\r\n");
+
+WriteLiteral("        <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n            <strong>Status Code :</strong>\r\n");
 
 WriteLiteral("            ");
 
             
-            #line 19 "..\..\Views\EventLogs\Details.cshtml"
+            #line 24 "..\..\Views\EventLogs\Details.cshtml"
        Write(Model.StatusCode);
 
             
@@ -104,10 +138,25 @@ WriteLiteral("        <div");
 
 WriteLiteral(" class=\"\"");
 
+WriteLiteral(">\r\n            <strong>Source :</strong>\r\n            <p> ");
+
+            
+            #line 29 "..\..\Views\EventLogs\Details.cshtml"
+           Write(Model.Source);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" </p>\r\n            <hr />\r\n        </div>\r\n");
+
+WriteLiteral("        <div");
+
+WriteLiteral(" class=\"\"");
+
 WriteLiteral(">\r\n            <strong>Message :</strong>\r\n            <p> ");
 
             
-            #line 24 "..\..\Views\EventLogs\Details.cshtml"
+            #line 34 "..\..\Views\EventLogs\Details.cshtml"
            Write(Model.Message);
 
             
@@ -119,33 +168,12 @@ WriteLiteral("        <div");
 
 WriteLiteral(" class=\"\"");
 
-WriteLiteral(">\r\n            <strong>StackTrace :</strong>\r\n            <p");
-
-WriteLiteral(" class=\"alert alert-warning\"");
-
-WriteLiteral(">\r\n");
-
-WriteLiteral("                ");
-
-            
-            #line 30 "..\..\Views\EventLogs\Details.cshtml"
-           Write(Model.StackTrace);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n            </p>\r\n            <hr />\r\n        </div>\r\n");
-
-WriteLiteral("        <div");
-
-WriteLiteral(" class=\"\"");
-
-WriteLiteral(">\r\n            <strong>InnerMessage :</strong>\r\n");
+WriteLiteral(">\r\n            <strong>Inner Message :</strong>\r\n");
 
 WriteLiteral("            ");
 
             
-            #line 36 "..\..\Views\EventLogs\Details.cshtml"
+            #line 39 "..\..\Views\EventLogs\Details.cshtml"
        Write(Model.InnerMessage);
 
             
@@ -157,12 +185,12 @@ WriteLiteral("        <div");
 
 WriteLiteral(" class=\"\"");
 
-WriteLiteral(">\r\n            <strong>HelpLink :</strong>\r\n");
+WriteLiteral(">\r\n            <strong>Help Link :</strong>\r\n");
 
 WriteLiteral("            ");
 
             
-            #line 41 "..\..\Views\EventLogs\Details.cshtml"
+            #line 44 "..\..\Views\EventLogs\Details.cshtml"
        Write(Model.HelpLink);
 
             
@@ -179,7 +207,7 @@ WriteLiteral(">\r\n            <strong>HResult :</strong>\r\n");
 WriteLiteral("            ");
 
             
-            #line 46 "..\..\Views\EventLogs\Details.cshtml"
+            #line 49 "..\..\Views\EventLogs\Details.cshtml"
        Write(Model.HResult);
 
             
@@ -188,7 +216,7 @@ WriteLiteral("            ");
 WriteLiteral("\r\n            <hr />\r\n        </div>\r\n");
 
             
-            #line 49 "..\..\Views\EventLogs\Details.cshtml"
+            #line 52 "..\..\Views\EventLogs\Details.cshtml"
 
     }
 
@@ -204,8 +232,53 @@ WriteLiteral(">\r\n        <strong>Date Time :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 53 "..\..\Views\EventLogs\Details.cshtml"
+            #line 56 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.CreateDateTime);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>Machine Name :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 61 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.MachineName);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>Host Name :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 66 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.UserHostName);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>IP Address :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 72 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.Ip);
 
             
             #line default
@@ -219,7 +292,7 @@ WriteLiteral(">\r\n        <strong>User :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 58 "..\..\Views\EventLogs\Details.cshtml"
+            #line 77 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.UserName);
 
             
@@ -229,27 +302,12 @@ WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
 
 WriteLiteral(" class=\"\"");
 
-WriteLiteral(">\r\n        <strong>Url :</strong>\r\n");
+WriteLiteral(">\r\n        <strong>User Agent :</strong>\r\n");
 
 WriteLiteral("        ");
 
             
-            #line 63 "..\..\Views\EventLogs\Details.cshtml"
-   Write(Model.Url);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
-
-WriteLiteral(" class=\"\"");
-
-WriteLiteral(">\r\n        <strong>UserAgent :</strong>\r\n");
-
-WriteLiteral("        ");
-
-            
-            #line 68 "..\..\Views\EventLogs\Details.cshtml"
+            #line 82 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.UserAgent);
 
             
@@ -264,7 +322,7 @@ WriteLiteral(">\r\n        <strong>Controller :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 73 "..\..\Views\EventLogs\Details.cshtml"
+            #line 87 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.Controller);
 
             
@@ -279,7 +337,7 @@ WriteLiteral(">\r\n        <strong>Action :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 78 "..\..\Views\EventLogs\Details.cshtml"
+            #line 92 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.Action);
 
             
@@ -289,12 +347,12 @@ WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
 
 WriteLiteral(" class=\"\"");
 
-WriteLiteral(">\r\n        <strong>RouteValues :</strong>\r\n");
+WriteLiteral(">\r\n        <strong>Route Values :</strong>\r\n");
 
 WriteLiteral("        ");
 
             
-            #line 83 "..\..\Views\EventLogs\Details.cshtml"
+            #line 97 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.RouteValues);
 
             
@@ -304,12 +362,27 @@ WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
 
 WriteLiteral(" class=\"\"");
 
-WriteLiteral(">\r\n        <strong>PathInfo :</strong>\r\n");
+WriteLiteral(">\r\n        <strong>Url :</strong>\r\n");
 
 WriteLiteral("        ");
 
             
-            #line 88 "..\..\Views\EventLogs\Details.cshtml"
+            #line 102 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.Url);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>Path Info :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 107 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.PathInfo);
 
             
@@ -324,13 +397,88 @@ WriteLiteral(">\r\n        <strong>QueryString :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 93 "..\..\Views\EventLogs\Details.cshtml"
+            #line 112 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.QueryString);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n    </div>\r\n\r\n</div>\r\n");
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>Physical Path :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 117 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.PhysicalPath);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>Physical Application Path :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 122 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.PhysicalApplicationPath);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>Form :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 127 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.Form);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>Cookies :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 132 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.Cookies);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>Server Variables :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 137 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.ServerVariables);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n\r\n</div>\r\n");
 
         }
     }

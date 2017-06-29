@@ -54,16 +54,16 @@ WriteLiteral(" name=\"viewport\"");
 
 WriteLiteral(" content=\"width=device-width, initial-scale=1.0\"");
 
-WriteLiteral(">\r\n    <title>");
+WriteLiteral(">\r\n    <title>EventLogger: ");
 
             
             #line 8 "..\..\Views\Shared\_LoggerMainLayout.cshtml"
-      Write(ViewBag.Title);
+                   Write(ViewBag.Title);
 
             
             #line default
             #line hidden
-WriteLiteral(" - My ASP.NET Application</title>\r\n");
+WriteLiteral("</title>\r\n");
 
 WriteLiteral("    ");
 
@@ -183,6 +183,8 @@ WriteLiteral("        ");
             #line hidden
 WriteLiteral("\r\n        <hr />\r\n        <footer>\r\n            <p>\r\n                powered by <" +
 "a");
+
+WriteLiteral(" target=\"_blank\"");
 
 WriteLiteral(" href=\"https://github.com/hamed-shirbandi/EventLogger\"");
 

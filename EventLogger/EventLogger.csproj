@@ -57,6 +57,10 @@
     <Compile Include="EventLoggerConfig.cs" />
     <Compile Include="Context\EventLoggerContext.cs" />
     <Compile Include="Domain\EventLog.cs" />
+    <Compile Include="Helpers\ExceptionHelper.cs" />
+    <Compile Include="Helpers\HttpRequestHelper.cs" />
+    <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="HttpModule\ErrorLogModule.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\EventLogs\Dto\EventLogOutput.cs" />
