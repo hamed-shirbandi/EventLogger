@@ -30,12 +30,41 @@ namespace EventLogger
                 Cookies = GetCookies(request),
                 ServerVariables = GetServerVariables(request),
                 Form = GetForm(request),
+                HttpMethod = GetHttpMethod(request),
+                Protocol = GetProtocol(request),
+                Port = GetPort(request),
+                HttpHost = GetHttpHost(request),
+                UrlReferer = GetUrlReferer(request),
             };
         }
 
         public static string GetCookies(HttpRequestBase request)
         {
             return string.Empty;
+        }
+        public static string GetHttpMethod(HttpRequestBase request)
+        {
+            return request.HttpMethod;
+
+        }
+        public static string GetUrlReferer(HttpRequestBase request)
+        {
+            return request.UrlReferrer != null ? request.UrlReferrer.ToString() : string.Empty;
+        }
+        public static string GetProtocol(HttpRequestBase request)
+        {
+            return request.Url.Scheme ;
+
+        }
+        public static string GetPort(HttpRequestBase request)
+        {
+            return request.Url.Port.ToString();
+
+        }
+        public static string GetHttpHost(HttpRequestBase request)
+        {
+            return request.Url.Host;
+
         }
         public static string GetServerVariables(HttpRequestBase request)
         {

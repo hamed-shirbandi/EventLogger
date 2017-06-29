@@ -58,7 +58,13 @@ namespace EventLogger.Service.EventLogs
                 PhysicalApplicationPath = input.PhysicalApplicationPath,
                 ServerVariables = input.ServerVariables,
                 UserHostName = input.UserHostName,
-
+                HttpMethod = input.HttpMethod,
+                HttpHost = input.HttpHost,
+                Protocol = input.Protocol,
+                Port = input.Port,
+                UrlReferer = input.UrlReferer,
+                
+                //ex
                 Source = input.Source,
                 StackTrace = input.StackTrace,
                 HelpLink = input.HelpLink,
@@ -111,7 +117,13 @@ namespace EventLogger.Service.EventLogs
                 PhysicalApplicationPath = log.PhysicalApplicationPath,
                 ServerVariables = log.ServerVariables,
                 UserHostName = log.UserHostName,
-                
+                HttpMethod = log.HttpMethod,
+                HttpHost = log.HttpHost,
+                Protocol = log.Protocol,
+                Port = log.Port,
+                UrlReferer = log.UrlReferer,
+
+                //ex
                 HelpLink = log.HelpLink,
                 HResult = log.HResult,
                 StatusCode = log.StatusCode,
@@ -173,7 +185,13 @@ namespace EventLogger.Service.EventLogs
                 PhysicalApplicationPath = log.PhysicalApplicationPath,
                 ServerVariables = log.ServerVariables,
                 UserHostName = log.UserHostName,
+                HttpMethod = log.HttpMethod,
+                HttpHost = log.HttpHost,
+                Protocol = log.Protocol,
+                Port = log.Port,
+                UrlReferer = log.UrlReferer,
 
+                //ex
                 HelpLink = log.HelpLink,
                 HResult = log.HResult,
                 StatusCode = log.StatusCode,

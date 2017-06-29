@@ -21,12 +21,15 @@ namespace EventLogger.Service.EventLogs.Dto
         public string UserHostName { get; set; }
         public string PhysicalPath { get; set; }
         public string PhysicalApplicationPath { get; set; }
-        
         public string MachineName { get; set; }
         public string Cookies { get; set; }
         public string ServerVariables { get; set; }
         public string Form { get; set; }
-
+        public string HttpHost { get; set; }
+        public string Port { get; set; }
+        public string Protocol { get; set; }
+        public string UrlReferer { get; set; }
+        public string HttpMethod { get; set; }
         //ex
         public int StatusCode { get; set; }
         public string Message { get; set; }

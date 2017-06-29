@@ -61,8 +61,17 @@ namespace EventLogger
         }
         public static int GetErrorStatusCode(Exception ex)
         {
-            var httpEx = (HttpException)ex;
-            return httpEx.GetHttpCode();
+            try
+            {
+                var httpEx = (HttpException)ex;
+                return httpEx.GetHttpCode();
+            }
+            catch 
+            {
+
+                return 0;
+            }
+         
         }
     }
 }

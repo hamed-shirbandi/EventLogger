@@ -7,7 +7,7 @@
         <th>Log Id</th>
         <th>Code</th>
         <th>Error Message</th>
-        <th>Source</th>
+        <th>Type Name</th>
         <th>User</th>
         <th>Date Time</th>
         <th></th>
@@ -20,7 +20,7 @@
             <th scope="row">@item.Id</th>
             <td>@item.StatusCode</td>
             <td style="max-width:250px;text-overflow:ellipsis;white-space: nowrap;overflow: hidden;;">@item.Message</td>
-            <td>@item.Source</td>
+            <td>@item.TypeName</td>
             <td>@item.UserName</td>
             <td>
                 @item.CreateDateTime.ToShortDateString()

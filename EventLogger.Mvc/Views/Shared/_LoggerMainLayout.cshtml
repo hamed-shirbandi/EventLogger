@@ -1,5 +1,15 @@
 ﻿@using EventLogger.Enums;
+@{ 
+    var controller = ViewContext.RouteData.Values["Controller"].ToString().ToLower();
+    var action = ViewContext.RouteData.Values["action"].ToString().ToLower();
+    var eventLogTypeValue = Request.QueryString["eventLogType"];
+    var eventLogType ="error";
+    if (eventLogTypeValue != null)
+    {
+        eventLogType = eventLogTypeValue.ToString().ToLower();
+    }
 
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,9 +32,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Statistic", "Statistic", "EventLogs")</li>
-                    <li>@Html.ActionLink("Errors List", "Index", "EventLogs", new { eventLogType = EventLogType.Error }, new { })</li>
-                    <li>@Html.ActionLink("Events List", "Index", "EventLogs", new { eventLogType= EventLogType.Event },new { })</li>
+                    @*<li class="@if(action=="statistic" && controller=="home") { <text>active</text>} ">@Html.ActionLink("Statistic", "Statistic", "EventLogs")</li>*@
+                    <li class="@if(action=="index" && controller=="eventlogs" && eventLogType=="error") { <text>active</text>} ">@Html.ActionLink("Errors List", "Index", "EventLogs", new { eventLogType = EventLogType.Error }, new { })</li>
+                    <li class="@if(action=="index" && controller=="eventlogs" && eventLogType=="event") { <text>active</text>} ">@Html.ActionLink("Events List", "Index", "EventLogs", new { eventLogType= EventLogType.Event },new { })</li>
                 </ul>
             </div>
         </div>

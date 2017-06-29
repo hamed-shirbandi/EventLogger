@@ -50,8 +50,8 @@ WriteLiteral("\r\n\r\n<thead");
 WriteLiteral(" class=\"thead-inverse\"");
 
 WriteLiteral(">\r\n    <tr>\r\n        <th>Log Id</th>\r\n        <th>Code</th>\r\n        <th>Error Me" +
-"ssage</th>\r\n        <th>Source</th>\r\n        <th>User</th>\r\n        <th>Date Tim" +
-"e</th>\r\n        <th></th>\r\n    </tr>\r\n</thead>\r\n<tbody>\r\n");
+"ssage</th>\r\n        <th>Type Name</th>\r\n        <th>User</th>\r\n        <th>Date " +
+"Time</th>\r\n        <th></th>\r\n    </tr>\r\n</thead>\r\n<tbody>\r\n");
 
             
             #line 17 "..\..\Views\EventLogs\_ErrorLogs.cshtml"
@@ -107,7 +107,7 @@ WriteLiteral("</td>\r\n            <td>");
 
             
             #line 23 "..\..\Views\EventLogs\_ErrorLogs.cshtml"
-           Write(item.Source);
+           Write(item.TypeName);
 
             
             #line default

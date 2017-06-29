@@ -287,12 +287,72 @@ WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
 
 WriteLiteral(" class=\"\"");
 
-WriteLiteral(">\r\n        <strong>User :</strong>\r\n");
+WriteLiteral(">\r\n        <strong>Protocol :</strong>\r\n");
 
 WriteLiteral("        ");
 
             
             #line 77 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.Protocol);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>Http Host :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 82 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.HttpHost);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>Port :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 87 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.Port);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>Http Method :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 92 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.HttpMethod);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>User :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 97 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.UserName);
 
             
@@ -307,7 +367,7 @@ WriteLiteral(">\r\n        <strong>User Agent :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 82 "..\..\Views\EventLogs\Details.cshtml"
+            #line 102 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.UserAgent);
 
             
@@ -322,7 +382,7 @@ WriteLiteral(">\r\n        <strong>Controller :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 87 "..\..\Views\EventLogs\Details.cshtml"
+            #line 107 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.Controller);
 
             
@@ -337,7 +397,7 @@ WriteLiteral(">\r\n        <strong>Action :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 92 "..\..\Views\EventLogs\Details.cshtml"
+            #line 112 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.Action);
 
             
@@ -352,7 +412,7 @@ WriteLiteral(">\r\n        <strong>Route Values :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 97 "..\..\Views\EventLogs\Details.cshtml"
+            #line 117 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.RouteValues);
 
             
@@ -367,8 +427,23 @@ WriteLiteral(">\r\n        <strong>Url :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 102 "..\..\Views\EventLogs\Details.cshtml"
+            #line 122 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.Url);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>Url Referer :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 127 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.UrlReferer);
 
             
             #line default
@@ -382,7 +457,7 @@ WriteLiteral(">\r\n        <strong>Path Info :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 107 "..\..\Views\EventLogs\Details.cshtml"
+            #line 132 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.PathInfo);
 
             
@@ -397,8 +472,23 @@ WriteLiteral(">\r\n        <strong>QueryString :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 112 "..\..\Views\EventLogs\Details.cshtml"
+            #line 137 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.QueryString);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n        <strong>UrlReferer :</strong>\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 142 "..\..\Views\EventLogs\Details.cshtml"
+   Write(Model.UrlReferer);
 
             
             #line default
@@ -412,7 +502,7 @@ WriteLiteral(">\r\n        <strong>Physical Path :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 117 "..\..\Views\EventLogs\Details.cshtml"
+            #line 147 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.PhysicalPath);
 
             
@@ -427,7 +517,7 @@ WriteLiteral(">\r\n        <strong>Physical Application Path :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 122 "..\..\Views\EventLogs\Details.cshtml"
+            #line 152 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.PhysicalApplicationPath);
 
             
@@ -442,7 +532,7 @@ WriteLiteral(">\r\n        <strong>Form :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 127 "..\..\Views\EventLogs\Details.cshtml"
+            #line 157 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.Form);
 
             
@@ -457,7 +547,7 @@ WriteLiteral(">\r\n        <strong>Cookies :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 132 "..\..\Views\EventLogs\Details.cshtml"
+            #line 162 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.Cookies);
 
             
@@ -472,7 +562,7 @@ WriteLiteral(">\r\n        <strong>Server Variables :</strong>\r\n");
 WriteLiteral("        ");
 
             
-            #line 137 "..\..\Views\EventLogs\Details.cshtml"
+            #line 167 "..\..\Views\EventLogs\Details.cshtml"
    Write(Model.ServerVariables);
 
             
