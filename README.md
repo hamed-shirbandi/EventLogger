@@ -63,7 +63,7 @@ Event Logs
 -----------
 ![EventLogger](https://github.com/hamed-shirbandi/EventLogger/blob/master/EventLogger.Mvc.Example/Content/img/3.png)
 
-Log Detailes
+Log Details
 -----------
 ![EventLogger](https://github.com/hamed-shirbandi/EventLogger/blob/master/EventLogger.Mvc.Example/Content/img/4.png)
 
