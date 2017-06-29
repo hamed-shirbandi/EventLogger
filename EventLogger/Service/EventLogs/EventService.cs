@@ -9,7 +9,7 @@ using EventLogger.Enums;
 
 namespace EventLogger.Service.EventLogs
 {
-    public class EventService : IEventService
+    public  class EventService : IEventService
     {
 
         #region properties
@@ -36,7 +36,7 @@ namespace EventLogger.Service.EventLogs
         /// <summary>
         /// 
         /// </summary>
-        public void Create(EventLogInput input)
+        public  void Create(EventLogInput input)
         {
             var log = new EventLog
             {

@@ -25,21 +25,19 @@ namespace EventLogger.Mvc
 
         private void LogEvent(ActionExecutingContext filterContext)
         {
-            string routeValues = HttpRequestHelper.GetRuteValues(filterContext);
-
+           
             var log = new EventLogInput
             {
                 EventLogType= EventLogType.Event,
-                Action = filterContext.RouteData.Values["action"].ToString(),
-                Controller = filterContext.RouteData.Values["controller"].ToString(),
-                RouteValues=routeValues,
-                UserName = filterContext.HttpContext.User.Identity.Name,
-                QueryString=filterContext.HttpContext.Request.Url.Query,
-                Url=filterContext.HttpContext.Request.Path,
-                UserAgent=filterContext.HttpContext.Request.UserAgent,
-                Ip=filterContext.HttpContext.Request.UserHostAddress,
-                PathInfo= filterContext.HttpContext.Request.PathInfo,
-                StatusCode = filterContext.HttpContext.Response.StatusCode,
+                Action = HttpRequestHelper.GetActionName(filterContext.RouteData),
+                Controller = HttpRequestHelper.GetControllerName(filterContext.RouteData),
+                RouteValues= HttpRequestHelper.GetRuteValues(filterContext.RouteData),
+                UserName = HttpRequestHelper.GetCurrentUserName(filterContext.HttpContext),
+                QueryString = HttpRequestHelper.GetQueryString(filterContext.HttpContext),
+                Url = HttpRequestHelper.GetUrl(filterContext.HttpContext),
+                UserAgent = HttpRequestHelper.GetUserAgent(filterContext.HttpContext),
+                Ip = HttpRequestHelper.GetIpAddress(filterContext.HttpContext),
+                PathInfo = HttpRequestHelper.GetPathInfo(filterContext.HttpContext),
 
 
             };

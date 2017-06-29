@@ -47,7 +47,7 @@ namespace EventLogger.Mvc.Views
             
             #line 3 "..\..\Views\EventLogs\Index.cshtml"
   
-    ViewBag.Title = "Log View";
+    ViewBag.Title = "Log List";
     Layout = "~/Views/Shared/_LoggerMainLayout.cshtml";
 
             
@@ -108,23 +108,6 @@ WriteLiteral("                    ");
 
             
             #line 16 "..\..\Views\EventLogs\Index.cshtml"
-               Write(Html.DropDownList("EventLogType", null, new { @class = "form-control" }));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                </div>\r\n");
-
-WriteLiteral("                <div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 19 "..\..\Views\EventLogs\Index.cshtml"
                Write(Html.DropDownList("SortOrder", null, new { @class = "form-control" }));
 
             
@@ -141,7 +124,7 @@ WriteLiteral(" class=\"btn btn-primary\"");
 WriteLiteral(">Search</button>\r\n");
 
             
-            #line 22 "..\..\Views\EventLogs\Index.cshtml"
+            #line 19 "..\..\Views\EventLogs\Index.cshtml"
             }
 
             
@@ -158,13 +141,13 @@ WriteLiteral(" class=\"table table-striped\"");
 WriteLiteral(">\r\n");
 
             
-            #line 26 "..\..\Views\EventLogs\Index.cshtml"
+            #line 23 "..\..\Views\EventLogs\Index.cshtml"
                 
             
             #line default
             #line hidden
             
-            #line 26 "..\..\Views\EventLogs\Index.cshtml"
+            #line 23 "..\..\Views\EventLogs\Index.cshtml"
                  if (ViewBag.CurrentEventLogType == EventLogType.Error)
                 {
                     
@@ -172,14 +155,14 @@ WriteLiteral(">\r\n");
             #line default
             #line hidden
             
-            #line 28 "..\..\Views\EventLogs\Index.cshtml"
+            #line 25 "..\..\Views\EventLogs\Index.cshtml"
                Write(Html.Partial("_ErrorLogs", Model));
 
             
             #line default
             #line hidden
             
-            #line 28 "..\..\Views\EventLogs\Index.cshtml"
+            #line 25 "..\..\Views\EventLogs\Index.cshtml"
                                                       
                 }
                 else
@@ -189,14 +172,14 @@ WriteLiteral(">\r\n");
             #line default
             #line hidden
             
-            #line 32 "..\..\Views\EventLogs\Index.cshtml"
+            #line 29 "..\..\Views\EventLogs\Index.cshtml"
                Write(Html.Partial("_EventLogs", Model));
 
             
             #line default
             #line hidden
             
-            #line 32 "..\..\Views\EventLogs\Index.cshtml"
+            #line 29 "..\..\Views\EventLogs\Index.cshtml"
                                                       
                 }
 
@@ -214,13 +197,13 @@ WriteLiteral(" class=\"pagination\"");
 WriteLiteral(">\r\n");
 
             
-            #line 38 "..\..\Views\EventLogs\Index.cshtml"
+            #line 35 "..\..\Views\EventLogs\Index.cshtml"
                     
             
             #line default
             #line hidden
             
-            #line 38 "..\..\Views\EventLogs\Index.cshtml"
+            #line 35 "..\..\Views\EventLogs\Index.cshtml"
                      for (int i = 1; i <= ViewBag.PageSize; i++)
                     {
 
@@ -230,7 +213,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                        <li ");
 
             
-            #line 40 "..\..\Views\EventLogs\Index.cshtml"
+            #line 37 "..\..\Views\EventLogs\Index.cshtml"
                              if (i == ViewBag.CurrentPage) {
             
             #line default
@@ -242,21 +225,21 @@ WriteLiteral(" class=\"active\" ");
 WriteLiteral("      ");
 
             
-            #line 40 "..\..\Views\EventLogs\Index.cshtml"
+            #line 37 "..\..\Views\EventLogs\Index.cshtml"
                                                                                                 }
             
             #line default
             #line hidden
 WriteLiteral(">\r\n                            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1773), Tuple.Create("\"", 1998)
+WriteAttribute("href", Tuple.Create(" href=\"", 1612), Tuple.Create("\"", 1837)
             
-            #line 41 "..\..\Views\EventLogs\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 1780), Tuple.Create<System.Object, System.Int32>(Url.Action(actionName:"index",controllerName: "EventLogs", routeValues:new { page=i,term= Request.QueryString["term"], sortOrder = Request.QueryString["sortOrder"], eventLogType = Request.QueryString["eventLogType"]})
+            #line 38 "..\..\Views\EventLogs\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 1619), Tuple.Create<System.Object, System.Int32>(Url.Action(actionName:"index",controllerName: "EventLogs", routeValues:new { page=i,term= Request.QueryString["term"], sortOrder = Request.QueryString["sortOrder"], eventLogType = Request.QueryString["eventLogType"]})
             
             #line default
             #line hidden
-, 1780), false)
+, 1619), false)
 );
 
 WriteLiteral(">\r\n");
@@ -264,7 +247,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                ");
 
             
-            #line 42 "..\..\Views\EventLogs\Index.cshtml"
+            #line 39 "..\..\Views\EventLogs\Index.cshtml"
                            Write(i);
 
             
@@ -273,7 +256,7 @@ WriteLiteral("                                ");
 WriteLiteral("\r\n                            </a>\r\n                        </li>\r\n");
 
             
-            #line 45 "..\..\Views\EventLogs\Index.cshtml"
+            #line 42 "..\..\Views\EventLogs\Index.cshtml"
                     }
 
             
@@ -282,13 +265,13 @@ WriteLiteral("\r\n                            </a>\r\n                        </
 WriteLiteral("                </ul>\r\n            </div>\r\n");
 
             
-            #line 48 "..\..\Views\EventLogs\Index.cshtml"
+            #line 45 "..\..\Views\EventLogs\Index.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 48 "..\..\Views\EventLogs\Index.cshtml"
+            #line 45 "..\..\Views\EventLogs\Index.cshtml"
              if (ViewBag.PageSize>0)
             {
 
@@ -298,7 +281,7 @@ WriteLiteral("                </ul>\r\n            </div>\r\n");
 WriteLiteral("                <div>\r\n                    page ");
 
             
-            #line 51 "..\..\Views\EventLogs\Index.cshtml"
+            #line 48 "..\..\Views\EventLogs\Index.cshtml"
                     Write(ViewBag.CurrentPage);
 
             
@@ -307,7 +290,7 @@ WriteLiteral("                <div>\r\n                    page ");
 WriteLiteral(" of ");
 
             
-            #line 51 "..\..\Views\EventLogs\Index.cshtml"
+            #line 48 "..\..\Views\EventLogs\Index.cshtml"
                                             Write(ViewBag.PageSize);
 
             
@@ -316,7 +299,7 @@ WriteLiteral(" of ");
 WriteLiteral(" - total count is ");
 
             
-            #line 51 "..\..\Views\EventLogs\Index.cshtml"
+            #line 48 "..\..\Views\EventLogs\Index.cshtml"
                                                                                Write(ViewBag.TotalItemCount);
 
             
@@ -325,7 +308,7 @@ WriteLiteral(" - total count is ");
 WriteLiteral("\r\n                </div>\r\n");
 
             
-            #line 53 "..\..\Views\EventLogs\Index.cshtml"
+            #line 50 "..\..\Views\EventLogs\Index.cshtml"
             }
 
             

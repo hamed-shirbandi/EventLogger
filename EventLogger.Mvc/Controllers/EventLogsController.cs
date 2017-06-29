@@ -1,10 +1,7 @@
 ﻿using EventLogger.Enums;
 using EventLogger.Service.EventLogs;
-using RazorGenerator.Mvc;
-using System;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
-using System.Web.WebPages;
 
 namespace EventLogger.Mvc.Controllers
 {
@@ -24,6 +21,11 @@ namespace EventLogger.Mvc.Controllers
             TotalItemCount = 0;
         }
 
+
+        public ActionResult Statistic()
+        {
+            return View();
+        }
 
         /// <summary>
         /// 

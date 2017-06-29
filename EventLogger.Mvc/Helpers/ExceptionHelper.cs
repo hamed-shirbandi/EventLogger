@@ -1,29 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
+using System.Web;
 
 namespace EventLogger.Mvc
 {
     public class ExceptionHelper
     {
-        public static string GetRuteValues(ExceptionContext filterContext)
-        {
-            var keyValues = string.Empty;
-            var keys = filterContext.RouteData.Values.Keys;
-            var values = filterContext.RouteData.Values;
-
-            foreach (var key in keys)
-            {
-                keyValues += key + " = " + values[key].ToString() + " , ";
-            }
-
-            return keyValues;
-        }
-
-
+  
         public static string GetInnerException(Exception ex)
         {
             var msg = "";
@@ -32,6 +14,31 @@ namespace EventLogger.Mvc
                 msg= ex.InnerException.Message;
             }
             return msg;
+        }
+        public static string GetHelpLink(Exception ex)
+        {
+            return ex.HelpLink;
+        }
+        public static int? GetHResult(Exception ex)
+        {
+            return ex.HResult;
+        }
+        public static string GetMessage(Exception ex)
+        {
+            return ex.Message;
+        }
+        public static string GetSource(Exception ex)
+        {
+            return ex.Source;
+        }
+        public static string GetStackTrace(Exception ex)
+        {
+            return ex.StackTrace;
+        }
+        public static int GetErrorStatusCode(Exception ex)
+        {
+            var httpEx = (HttpException)ex;
+           return httpEx.GetHttpCode();
         }
     }
 }

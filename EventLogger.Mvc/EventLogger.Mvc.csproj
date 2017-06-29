@@ -132,6 +132,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Details.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EventLogs\Statistic.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Statistic.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EventLogs\_ErrorLogs.generated.cs">
       <DependentUpon>_ErrorLogs.cshtml</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -194,6 +199,11 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>_ErrorLogs.generated.cs</LastGenOutput>
       <CustomToolNamespace>EventLogger.Mvc.Views</CustomToolNamespace>
+    </Content>
+    <Content Include="Views\EventLogs\Statistic.cshtml">
+      <CustomToolNamespace>EventLogger.Mvc.Views</CustomToolNamespace>
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Statistic.generated.cs</LastGenOutput>
     </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>

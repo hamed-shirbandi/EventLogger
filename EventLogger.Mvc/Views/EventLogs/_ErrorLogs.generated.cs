@@ -49,10 +49,9 @@ WriteLiteral("\r\n\r\n<thead");
 
 WriteLiteral(" class=\"thead-inverse\"");
 
-WriteLiteral(">\r\n    <tr>\r\n        <th>Log Id</th>\r\n        ");
-
-WriteLiteral("\r\n        <th>Error</th>\r\n        <th>Source</th>\r\n        <th>User</th>\r\n       " +
-" <th>Date Time</th>\r\n        <th></th>\r\n    </tr>\r\n</thead>\r\n<tbody>\r\n");
+WriteLiteral(">\r\n    <tr>\r\n        <th>Log Id</th>\r\n        <th>Code</th>\r\n        <th>Error Me" +
+"ssage</th>\r\n        <th>Source</th>\r\n        <th>User</th>\r\n        <th>Date Tim" +
+"e</th>\r\n        <th></th>\r\n    </tr>\r\n</thead>\r\n<tbody>\r\n");
 
             
             #line 17 "..\..\Views\EventLogs\_ErrorLogs.cshtml"
@@ -81,9 +80,16 @@ WriteLiteral(">");
             
             #line default
             #line hidden
-WriteLiteral("</th>\r\n            ");
+WriteLiteral("</th>\r\n            <td>");
 
-WriteLiteral("\r\n            <td");
+            
+            #line 21 "..\..\Views\EventLogs\_ErrorLogs.cshtml"
+           Write(item.StatusCode);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n            <td");
 
 WriteLiteral(" style=\"max-width:250px;text-overflow:ellipsis;white-space: nowrap;overflow: hidd" +
 "en;;\"");

@@ -1,6 +1,4 @@
-﻿using EventLogger.Enums;
-using EventLogger.Service.EventLogs;
-using RazorGenerator.Mvc;
+﻿using RazorGenerator.Mvc;
 using System;
 using System.Web.Mvc;
 using System.Web.WebPages;

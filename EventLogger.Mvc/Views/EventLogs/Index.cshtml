@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<EventLogger.Service.EventLogs.Dto.EventLogOutput>
 @using EventLogger.Enums;
 @{
-    ViewBag.Title = "Log View";
+    ViewBag.Title = "Log List";
     Layout = "~/Views/Shared/_LoggerMainLayout.cshtml";
 }
 <div class="row">
@@ -11,9 +11,6 @@
             {
                 <div class="form-group">
                     @Html.TextBox("term",null,new { @class = "form-control", @placeholder = "search something" })
-                </div>
-                <div class="form-group">
-                    @Html.DropDownList("EventLogType", null, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
                     @Html.DropDownList("SortOrder", null, new { @class = "form-control" })

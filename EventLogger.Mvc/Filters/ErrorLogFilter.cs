@@ -36,27 +36,26 @@ namespace EventLogger.Mvc
         private void LogError(ExceptionContext filterContext)
         {
            
-            string routeValues = ExceptionHelper.GetRuteValues(filterContext);
-
+           
             var log = new EventLogInput
             {
-                EventLogType = EventLogType.Error,
-                Action = filterContext.RouteData.Values["action"].ToString(),
-                Controller = filterContext.RouteData.Values["controller"].ToString(),
-                RouteValues = routeValues,
-                UserName = filterContext.HttpContext.User.Identity.Name,
-                QueryString = filterContext.HttpContext.Request.Url.Query,
-                Url = filterContext.HttpContext.Request.Path,
-                UserAgent = filterContext.HttpContext.Request.UserAgent,
-                Ip = filterContext.HttpContext.Request.UserHostAddress,
-                PathInfo = filterContext.HttpContext.Request.PathInfo,
-                StatusCode= filterContext.HttpContext.Response.StatusCode,
-                HelpLink = filterContext.Exception.HelpLink,
-                HResult = filterContext.Exception.HResult,
-                Message = filterContext.Exception.Message,
-                InnerMessage=ExceptionHelper.GetInnerException(filterContext.Exception),
-                Source = filterContext.Exception.Source,
-                StackTrace = filterContext.Exception.StackTrace,
+                EventLogType = EventLogType.Event,
+                Action = HttpRequestHelper.GetActionName(filterContext.RouteData),
+                Controller = HttpRequestHelper.GetControllerName(filterContext.RouteData),
+                RouteValues = HttpRequestHelper.GetRuteValues(filterContext.RouteData),
+                UserName = HttpRequestHelper.GetCurrentUserName(filterContext.HttpContext),
+                QueryString = HttpRequestHelper.GetQueryString(filterContext.HttpContext),
+                Url = HttpRequestHelper.GetUrl(filterContext.HttpContext),
+                UserAgent = HttpRequestHelper.GetUserAgent(filterContext.HttpContext),
+                Ip = HttpRequestHelper.GetIpAddress(filterContext.HttpContext),
+                PathInfo = HttpRequestHelper.GetPathInfo(filterContext.HttpContext),
+                StatusCode =  ExceptionHelper.GetErrorStatusCode(filterContext.Exception),
+                HelpLink = ExceptionHelper.GetHelpLink(filterContext.Exception),
+                HResult = ExceptionHelper.GetHResult(filterContext.Exception),
+                Message = ExceptionHelper.GetInnerException(filterContext.Exception),
+                InnerMessage =ExceptionHelper.GetInnerException(filterContext.Exception),
+                Source = ExceptionHelper.GetInnerException(filterContext.Exception),
+                StackTrace = ExceptionHelper.GetInnerException(filterContext.Exception),
             };
 
             _eventService.Create(log);

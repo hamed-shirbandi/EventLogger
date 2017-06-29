@@ -1,5 +1,4 @@
-﻿
-namespace EventLogger.Enums
+﻿namespace EventLogger.Enums
 {
     public enum EventLogType
     {

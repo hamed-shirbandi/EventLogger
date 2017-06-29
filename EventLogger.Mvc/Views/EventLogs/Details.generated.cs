@@ -87,10 +87,27 @@ WriteLiteral("        <div");
 
 WriteLiteral(" class=\"\"");
 
-WriteLiteral(">\r\n            <strong>Message :</strong>\r\n            <p> ");
+WriteLiteral(">\r\n            <strong>StatusCode :</strong>\r\n");
+
+WriteLiteral("            ");
 
             
             #line 19 "..\..\Views\EventLogs\Details.cshtml"
+       Write(Model.StatusCode);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            <hr />\r\n        </div>\r\n");
+
+WriteLiteral("        <div");
+
+WriteLiteral(" class=\"\"");
+
+WriteLiteral(">\r\n            <strong>Message :</strong>\r\n            <p> ");
+
+            
+            #line 24 "..\..\Views\EventLogs\Details.cshtml"
            Write(Model.Message);
 
             
@@ -111,7 +128,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                ");
 
             
-            #line 25 "..\..\Views\EventLogs\Details.cshtml"
+            #line 30 "..\..\Views\EventLogs\Details.cshtml"
            Write(Model.StackTrace);
 
             
@@ -128,7 +145,7 @@ WriteLiteral(">\r\n            <strong>InnerMessage :</strong>\r\n");
 WriteLiteral("            ");
 
             
-            #line 31 "..\..\Views\EventLogs\Details.cshtml"
+            #line 36 "..\..\Views\EventLogs\Details.cshtml"
        Write(Model.InnerMessage);
 
             
@@ -145,7 +162,7 @@ WriteLiteral(">\r\n            <strong>HelpLink :</strong>\r\n");
 WriteLiteral("            ");
 
             
-            #line 36 "..\..\Views\EventLogs\Details.cshtml"
+            #line 41 "..\..\Views\EventLogs\Details.cshtml"
        Write(Model.HelpLink);
 
             
@@ -162,7 +179,7 @@ WriteLiteral(">\r\n            <strong>HResult :</strong>\r\n");
 WriteLiteral("            ");
 
             
-            #line 41 "..\..\Views\EventLogs\Details.cshtml"
+            #line 46 "..\..\Views\EventLogs\Details.cshtml"
        Write(Model.HResult);
 
             
@@ -171,7 +188,7 @@ WriteLiteral("            ");
 WriteLiteral("\r\n            <hr />\r\n        </div>\r\n");
 
             
-            #line 44 "..\..\Views\EventLogs\Details.cshtml"
+            #line 49 "..\..\Views\EventLogs\Details.cshtml"
 
     }
 
@@ -179,21 +196,6 @@ WriteLiteral("\r\n            <hr />\r\n        </div>\r\n");
             #line default
             #line hidden
 WriteLiteral("    <div");
-
-WriteLiteral(" class=\"\"");
-
-WriteLiteral(">\r\n        <strong>StatusCode :</strong>\r\n");
-
-WriteLiteral("        ");
-
-            
-            #line 48 "..\..\Views\EventLogs\Details.cshtml"
-   Write(Model.StatusCode);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
 
 WriteLiteral(" class=\"\"");
 

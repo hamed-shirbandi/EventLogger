@@ -5,8 +5,8 @@
 <thead class="thead-inverse">
     <tr>
         <th>Log Id</th>
-        @*<th>Code</th>*@
-        <th>Error</th>
+        <th>Code</th>
+        <th>Error Message</th>
         <th>Source</th>
         <th>User</th>
         <th>Date Time</th>
@@ -18,7 +18,7 @@
     {
         <tr>
             <th scope="row">@item.Id</th>
-            @*<td>@item.StatusCode</td>*@
+            <td>@item.StatusCode</td>
             <td style="max-width:250px;text-overflow:ellipsis;white-space: nowrap;overflow: hidden;;">@item.Message</td>
             <td>@item.Source</td>
             <td>@item.UserName</td>
