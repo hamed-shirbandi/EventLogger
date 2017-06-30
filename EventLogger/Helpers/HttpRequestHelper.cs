@@ -6,7 +6,7 @@ using System.Web.Routing;
 
 namespace EventLogger
 {
-   public class HttpRequestHelper
+    public class HttpRequestHelper
     {
         public static EventLogInput GetHttpRequestInfo(HttpContextBase httpContext, RouteData routeData)
         {
@@ -40,7 +40,16 @@ namespace EventLogger
 
         public static string GetCookies(HttpRequestBase request)
         {
-            return string.Empty;
+            var cookies = string.Empty;
+            foreach (var item in request.Cookies)
+            {
+                var cookieName = item.ToString();
+                var cookie = request.Cookies[cookieName];
+                if (cookie != null)
+                    cookies += "<strong class=\"text-primary\">"+ cookieName + " = </strong>"  + cookie.Value + " , ";
+
+            }
+            return cookies;
         }
         public static string GetHttpMethod(HttpRequestBase request)
         {
@@ -53,7 +62,7 @@ namespace EventLogger
         }
         public static string GetProtocol(HttpRequestBase request)
         {
-            return request.Url.Scheme ;
+            return request.Url.Scheme;
 
         }
         public static string GetPort(HttpRequestBase request)
@@ -73,9 +82,7 @@ namespace EventLogger
         }
         public static string GetForm(HttpRequestBase request)
         {
-            
             return string.Empty;
-
         }
         public static string GetUserHostName(HttpRequestBase request)
         {
@@ -148,7 +155,7 @@ namespace EventLogger
         }
         public static string GetRuteValues(RouteData routeData)
         {
-            if (routeData==null)
+            if (routeData == null)
                 return string.Empty;
             var keyValues = string.Empty;
             var keys = routeData.Values.Keys;

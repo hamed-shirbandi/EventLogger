@@ -152,20 +152,21 @@
         @Model.PhysicalApplicationPath
         <hr />
     </div>
-    <div class="">
-        <strong>Form :</strong>
-        @Model.Form
-        <hr />
-    </div>
+
     <div class="">
         <strong>Cookies :</strong>
-        @Model.Cookies
+       @Html.Raw(Model.Cookies)
+        <hr />
+    </div>
+    @*<div class="">
+        <strong>Form :</strong>
+        @Model.Form
         <hr />
     </div>
     <div class="">
         <strong>Server Variables :</strong>
         @Model.ServerVariables
         <hr />
-    </div>
+    </div>*@
 
 </div>

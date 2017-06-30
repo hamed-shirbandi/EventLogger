@@ -523,52 +523,24 @@ WriteLiteral("        ");
             
             #line default
             #line hidden
-WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
-
-WriteLiteral(" class=\"\"");
-
-WriteLiteral(">\r\n        <strong>Form :</strong>\r\n");
-
-WriteLiteral("        ");
-
-            
-            #line 157 "..\..\Views\EventLogs\Details.cshtml"
-   Write(Model.Form);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n\r\n    <div");
 
 WriteLiteral(" class=\"\"");
 
 WriteLiteral(">\r\n        <strong>Cookies :</strong>\r\n");
 
-WriteLiteral("        ");
+WriteLiteral("       ");
 
             
-            #line 162 "..\..\Views\EventLogs\Details.cshtml"
-   Write(Model.Cookies);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    <div");
-
-WriteLiteral(" class=\"\"");
-
-WriteLiteral(">\r\n        <strong>Server Variables :</strong>\r\n");
-
-WriteLiteral("        ");
-
-            
-            #line 167 "..\..\Views\EventLogs\Details.cshtml"
-   Write(Model.ServerVariables);
+            #line 158 "..\..\Views\EventLogs\Details.cshtml"
+  Write(Html.Raw(Model.Cookies));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        <hr />\r\n    </div>\r\n\r\n</div>\r\n");
+WriteLiteral("\r\n        <hr />\r\n    </div>\r\n    ");
+
+WriteLiteral("\r\n\r\n</div>\r\n");
 
         }
     }
