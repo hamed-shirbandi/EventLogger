@@ -7,7 +7,6 @@ namespace EventLogger.Mvc.Controllers
 {
     public class EventLogsController : BaseController
     {
-        private IEventService _eventService;
         private int pageSize;
         private int recordsPerPage;
         private int TotalItemCount;
@@ -15,7 +14,6 @@ namespace EventLogger.Mvc.Controllers
 
         public EventLogsController()
         {
-            _eventService = new EventService();
             pageSize = 0;
             recordsPerPage = 5;
             TotalItemCount = 0;
@@ -33,7 +31,7 @@ namespace EventLogger.Mvc.Controllers
         public ActionResult Index(int page=1, string term = "", SortOrder sortOrder= SortOrder.Desc, EventLogType eventLogType= EventLogType.Error)
         {
 
-            var logs = _eventService.Search(eventLogType: eventLogType, page: page,recordsPerPage:recordsPerPage,term: term,  sortOrder: sortOrder, pageSize: out pageSize, TotalItemCount: out TotalItemCount);
+            var logs = EventLogService.Search(eventLogType: eventLogType, page: page,recordsPerPage:recordsPerPage,term: term,  sortOrder: sortOrder, pageSize: out pageSize, TotalItemCount: out TotalItemCount);
 
             #region ViewBags
 
@@ -56,7 +54,7 @@ namespace EventLogger.Mvc.Controllers
         /// </summary>
         public ActionResult Details(int id)
         {
-            var log = _eventService.Get(id);
+            var log = EventLogService.Get(id);
             return View(log);
         }
 

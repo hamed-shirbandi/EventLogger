@@ -8,16 +8,6 @@ namespace EventLogger.Mvc.Example.Controllers
     {
         public ActionResult Index()
         {
-            var cookie = HttpContext.Request.Cookies["mycook"];
-            if (cookie == null )
-            {
-                var httpCookie = new HttpCookie("mycook", "hamedi")
-                {
-                    Expires = DateTime.Now.AddYears(1)
-                };
-                HttpContext.Response.SetCookie(httpCookie);
-            }
-
             //throw new Exception("test ex");
             return View(); 
         }

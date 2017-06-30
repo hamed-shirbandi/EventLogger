@@ -9,17 +9,14 @@ namespace EventLogger
 
     public class ErrorLogModule : IHttpModule
     {
-
-        private readonly IEventService _eventService;
-
-
+        
 
         /// <summary>
         /// 
         /// </summary>
         public ErrorLogModule()
         {
-            _eventService = new EventService();
+         
         }
 
 
@@ -65,7 +62,7 @@ namespace EventLogger
             log = ExceptionHelper.GetExceptionInfo(exception, log);
             log.EventLogType = EventLogType.Error;
 
-            _eventService.Create(log);
+            EventLogService.Create(log);
 
         }
 

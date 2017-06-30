@@ -9,22 +9,19 @@ using EventLogger.Enums;
 
 namespace EventLogger.Service.EventLogs
 {
-    public  class EventService : IEventService
+    public  class EventLogService 
     {
 
         #region properties
 
-        private readonly IDbSet<EventLog> _logs;
-        private readonly EventLoggerContext _con;
-
+  
         #endregion
 
         #region Ctor
 
-        public EventService()
+        public EventLogService()
         {
-            _con = new EventLoggerContext();
-            _logs = _con.Set<EventLog>();
+           
         }
 
         #endregion
@@ -36,7 +33,7 @@ namespace EventLogger.Service.EventLogs
         /// <summary>
         /// 
         /// </summary>
-        public  void Create(EventLogInput input)
+        public static double Create(EventLogInput input)
         {
             var log = new EventLog
             {
@@ -76,9 +73,12 @@ namespace EventLogger.Service.EventLogs
                 TypeName = input.TypeName,
                 
             };
-
-            _logs.Add(log);
-            _con.SaveChanges();
+            using (var con =new EventLoggerContext())
+            {
+                log= con.EventLogs.Add(log);
+                con.SaveChanges();
+            }
+            return log.Id;
         }
 
 
@@ -87,9 +87,13 @@ namespace EventLogger.Service.EventLogs
         /// <summary>
         /// 
         /// </summary>
-        public EventLogOutput Get(int id)
+        public static EventLogOutput Get(int id)
         {
-            var log = _logs.FirstOrDefault(e => e.Id == id);
+            EventLog log;
+            using (var con = new EventLoggerContext())
+            {
+                log = con.EventLogs.FirstOrDefault(e => e.Id == id);
+            }
 
             if (log == null)
             {
@@ -142,68 +146,71 @@ namespace EventLogger.Service.EventLogs
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<EventLogOutput> Search(EventLogType eventLogType, int page, int recordsPerPage, string term, SortOrder sortOrder, out int pageSize, out int TotalItemCount)
+        public static IEnumerable<EventLogOutput> Search(EventLogType eventLogType, int page, int recordsPerPage, string term, SortOrder sortOrder, out int pageSize, out int TotalItemCount)
         {
-            var queryable = _logs.Where(log=> log.EventLogType== eventLogType).AsQueryable();
-
-            if (!string.IsNullOrEmpty(term))
+            using (var con = new EventLoggerContext())
             {
-                queryable = queryable.Where(log => log.Message.Contains(term) || log.InnerMessage.Contains(term)|| log.Source.Contains(term) || log.UserName.Contains(term) || log.Url.Contains(term) || log.RouteValues.Contains(term) || log.QueryString.Contains(term));
+                var queryable = con.EventLogs.Where(log => log.EventLogType == eventLogType).AsQueryable();
+                if (!string.IsNullOrEmpty(term))
+                {
+                    queryable = queryable.Where(log => log.Message.Contains(term) || log.InnerMessage.Contains(term) || log.Source.Contains(term) || log.UserName.Contains(term) || log.Url.Contains(term) || log.RouteValues.Contains(term) || log.QueryString.Contains(term));
+                }
+
+                queryable = sortOrder == SortOrder.Asc ? queryable.OrderBy(log => log.CreateDateTime) : queryable.OrderByDescending(log => log.CreateDateTime);
+
+                TotalItemCount = queryable.Count();
+                pageSize = (int)Math.Ceiling((double)TotalItemCount / recordsPerPage);
+
+                page = page > pageSize || page < 1 ? 1 : page;
+
+
+                var skiped = (page - 1) * recordsPerPage;
+                queryable = queryable.Skip(skiped).Take(recordsPerPage);
+
+
+
+                return queryable.Select(log => new EventLogOutput
+                {
+                    Id = log.Id,
+                    Action = log.Action,
+                    Controller = log.Controller,
+                    RouteValues = log.RouteValues,
+                    UserName = log.UserName,
+                    CreateDateTime = log.CreateDateTime,
+                    EventLogType = log.EventLogType,
+                    Ip = log.Ip,
+                    PathInfo = log.PathInfo,
+                    QueryString = log.QueryString,
+                    Url = log.Url,
+                    UserAgent = log.UserAgent,
+                    Cookies = log.Cookies,
+                    Form = log.Form,
+                    MachineName = log.MachineName,
+                    PhysicalPath = log.PhysicalPath,
+                    PhysicalApplicationPath = log.PhysicalApplicationPath,
+                    ServerVariables = log.ServerVariables,
+                    UserHostName = log.UserHostName,
+                    HttpMethod = log.HttpMethod,
+                    HttpHost = log.HttpHost,
+                    Protocol = log.Protocol,
+                    Port = log.Port,
+                    UrlReferer = log.UrlReferer,
+
+                    //ex
+                    HelpLink = log.HelpLink,
+                    HResult = log.HResult,
+                    StatusCode = log.StatusCode,
+                    Message = log.Message,
+                    InnerMessage = log.InnerMessage,
+                    Source = log.Source,
+                    StackTrace = log.StackTrace,
+                    Details = log.Details,
+                    TypeName = log.TypeName,
+
+                }).ToList();
             }
 
-            queryable = sortOrder == SortOrder.Asc ? queryable.OrderBy(log => log.CreateDateTime) : queryable.OrderByDescending(log => log.CreateDateTime);
-
-            TotalItemCount = queryable.Count();
-            pageSize = (int)Math.Ceiling((double)TotalItemCount / recordsPerPage);
-
-            page = page > pageSize || page < 1 ? 1 : page;
-
-
-            var skiped = (page - 1) * recordsPerPage;
-            queryable = queryable.Skip(skiped).Take(recordsPerPage);
-
-
-
-            return queryable.Select(log => new EventLogOutput
-            {
-                Id = log.Id,
-                Action = log.Action,
-                Controller = log.Controller,
-                RouteValues = log.RouteValues,
-                UserName = log.UserName,
-                CreateDateTime = log.CreateDateTime,
-                EventLogType = log.EventLogType,
-                Ip = log.Ip,
-                PathInfo = log.PathInfo,
-                QueryString = log.QueryString,
-                Url = log.Url,
-                UserAgent = log.UserAgent,
-                Cookies = log.Cookies,
-                Form = log.Form,
-                MachineName = log.MachineName,
-                PhysicalPath = log.PhysicalPath,
-                PhysicalApplicationPath = log.PhysicalApplicationPath,
-                ServerVariables = log.ServerVariables,
-                UserHostName = log.UserHostName,
-                HttpMethod = log.HttpMethod,
-                HttpHost = log.HttpHost,
-                Protocol = log.Protocol,
-                Port = log.Port,
-                UrlReferer = log.UrlReferer,
-
-                //ex
-                HelpLink = log.HelpLink,
-                HResult = log.HResult,
-                StatusCode = log.StatusCode,
-                Message = log.Message,
-                InnerMessage = log.InnerMessage,
-                Source = log.Source,
-                StackTrace = log.StackTrace,
-                Details = log.Details,
-                TypeName = log.TypeName,
-
-            }).ToList();
-
+            
         }
 
 
@@ -214,9 +221,12 @@ namespace EventLogger.Service.EventLogs
         /// <summary>
         /// 
         /// </summary>
-        public int Count(EventLogType eventLogType)
+        public static int Count(EventLogType eventLogType)
         {
-            return _logs.Count(e => e.EventLogType == eventLogType);
+            using (var con = new EventLoggerContext())
+            {
+                return con.EventLogs.Count(e => e.EventLogType == eventLogType);
+            }
         }
 
 

@@ -7,11 +7,9 @@ namespace EventLogger.Mvc
 {
     public class ErrorLogFilter : HandleErrorAttribute
     {
-        private readonly IEventService _eventService;
 
         public ErrorLogFilter()
         {
-            _eventService = new EventService();
         }
 
 
@@ -43,7 +41,7 @@ namespace EventLogger.Mvc
              log = ExceptionHelper.GetExceptionInfo(exception, log);
             log.EventLogType = EventLogType.Error;
 
-            _eventService.Create(log);
+            EventLogService.Create(log);
         }
 
 

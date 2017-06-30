@@ -65,8 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\EventLogs\Dto\EventLogOutput.cs" />
     <Compile Include="Service\EventLogs\Dto\EventLogInput.cs" />
-    <Compile Include="Service\EventLogs\EventService.cs" />
-    <Compile Include="Service\EventLogs\IEventService.cs" />
+    <Compile Include="Service\EventLogs\EventLogService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

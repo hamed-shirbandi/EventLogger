@@ -7,11 +7,9 @@ namespace EventLogger.Mvc
 {
     public class EventLogFilter : ActionFilterAttribute
     {
-        private readonly IEventService _eventService;
 
         public EventLogFilter()
         {
-            _eventService = new EventService();
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -30,8 +28,8 @@ namespace EventLogger.Mvc
 
             var log = HttpRequestHelper.GetHttpRequestInfo(httpContext, routeData);
             log.EventLogType = EventLogType.Event;
-            
-            _eventService.Create(log);
+          
+            EventLogService.Create(log);
         }
 
         
